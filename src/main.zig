@@ -11,6 +11,12 @@ const usage =
     \\  mel <model> <wav> [out.f32]         log-mel spectrogram stats, optionally dumped [n_mel][n_len]
     \\  logits <model> <wav> <out.f32>      logits after [sot] on the first window (compare with ref)
     \\  bench <threads>                     kernel micro-benchmarks
+    \\  ggufinfo <model.gguf>               metadata and tensors of a GGUF file
+    \\  llmtokens <model.gguf> <text>       BPE token ids for text
+    \\  llm <model.gguf> [-t N] [--max N] [--ctx N] [--system S] [--rep P] [--raw] <prompt>
+    \\                                      chat with a Qwen2 model, streaming
+    \\  scenes <model.gguf> <transcript.jsonl> [-t N] [--ctx N]
+    \\                                      scenes for a transcript, template-driven
     \\  transcribe <model> <wav> [-t N] [--json] [--no-context] [--no-voices]
     \\                                      [--prompt TEXT] [--hotwords a,b,c] [--no-learn] [--profile]
     \\                                      stream segments as text or JSON lines
@@ -32,6 +38,10 @@ pub fn main(init: std.process.Init) !void {
     }
     const gpa = std.heap.smp_allocator;
     const cmd = args[1];
+
+    if (std.mem.eql(u8, cmd, "llm") or std.mem.eql(u8, cmd, "ggufinfo") or std.mem.eql(u8, cmd, "llmtokens") or std.mem.eql(u8, cmd, "scenes")) {
+        return llmMain(io, out, gpa, cmd, args);
+    }
 
     if (std.mem.eql(u8, cmd, "bench")) {
         const n = try std.fmt.parseInt(usize, args[2], 10);
@@ -206,6 +216,139 @@ pub fn main(init: std.process.Init) !void {
     }
     std.debug.print("{s}", .{usage});
     std.process.exit(2);
+}
+
+fn llmMain(io: Io, out: *Io.Writer, gpa: std.mem.Allocator, cmd: []const u8, args: []const []const u8) !void {
+    var mapped = try MappedFile.open(io, args[2]);
+    defer mapped.close();
+    var f = zw.gguf.File.parse(gpa, mapped.data) catch |err| {
+        std.debug.print("zwhisper: {s}: {t}\n", .{ args[2], err });
+        std.process.exit(1);
+    };
+    defer f.deinit();
+    if (std.mem.eql(u8, cmd, "ggufinfo")) {
+        try out.print("gguf v{d}: {d} metadata keys, {d} tensors\n", .{ f.version, f.kv.count(), f.tensors.count() });
+        var it = f.kv.iterator();
+        while (it.next()) |kv| {
+            const v = kv.value_ptr.*;
+            switch (v) {
+                .string => |s| try out.print("  {s} = \"{s}\"\n", .{ kv.key_ptr.*, s[0..@min(s.len, 80)] }),
+                .array => |a| try out.print("  {s} = array[{d}] of type {d}\n", .{ kv.key_ptr.*, a.count, a.elem }),
+                inline else => |x| try out.print("  {s} = {any}\n", .{ kv.key_ptr.*, x }),
+            }
+        }
+        var tt = f.tensors.iterator();
+        var shown: usize = 0;
+        while (tt.next()) |kv| : (shown += 1) {
+            if (shown >= 12) break;
+            const t = kv.value_ptr.*;
+            try out.print("  tensor {s} {t} [{d} {d} {d} {d}]\n", .{ kv.key_ptr.*, t.ty, t.ne[0], t.ne[1], t.ne[2], t.ne[3] });
+        }
+        return;
+    }
+    var threads: usize = @max(1, (std.Thread.getCpuCount() catch 4) - 1);
+    var max_new: usize = 512;
+    var n_ctx: usize = 4096;
+    var system: ?[]const u8 = "You are Qwen, created by Alibaba Cloud. You are a helpful assistant.";
+    var raw = false;
+    var prompt_text: []const u8 = "";
+    var i: usize = 3;
+    while (i < args.len) : (i += 1) {
+        if (std.mem.eql(u8, args[i], "-t") and i + 1 < args.len) {
+            i += 1;
+            threads = try std.fmt.parseInt(usize, args[i], 10);
+        } else if (std.mem.eql(u8, args[i], "--max") and i + 1 < args.len) {
+            i += 1;
+            max_new = try std.fmt.parseInt(usize, args[i], 10);
+        } else if (std.mem.eql(u8, args[i], "--ctx") and i + 1 < args.len) {
+            i += 1;
+            n_ctx = try std.fmt.parseInt(usize, args[i], 10);
+        } else if (std.mem.eql(u8, args[i], "--system") and i + 1 < args.len) {
+            i += 1;
+            system = if (args[i].len == 0) null else args[i];
+        } else if (std.mem.eql(u8, args[i], "--raw")) {
+            raw = true;
+        } else if (std.mem.eql(u8, args[i], "--profile")) {
+            zw.ops.profile.enabled = true;
+        } else if (std.mem.eql(u8, args[i], "--rep") and i + 1 < args.len) {
+            i += 1;
+            zw.llm.Model.repeat_penalty = try std.fmt.parseFloat(f32, args[i]);
+        } else {
+            prompt_text = args[i];
+        }
+    }
+    var timer = clock.Timer.start();
+    const m = try zw.llm.Model.load(gpa, &f, .{ .n_ctx = n_ctx, .threads = threads });
+    defer m.deinit();
+    const load_ns = timer.lap();
+    if (std.mem.eql(u8, cmd, "llmtokens")) {
+        const toks = try m.tok.encode(gpa, prompt_text);
+        defer gpa.free(toks);
+        for (toks) |t| try out.print("{d}'{s}' ", .{ t, m.tok.text(t) });
+        try out.writeAll("\n");
+        return;
+    }
+    if (std.mem.eql(u8, cmd, "scenes")) {
+        // prompt_text is a transcript JSONL path; lines are built as the worker does
+        var tf = try MappedFile.open(io, prompt_text);
+        defer tf.close();
+        var lines: std.ArrayList(u8) = .empty;
+        defer lines.deinit(gpa);
+        var it = std.mem.splitScalar(u8, tf.data, '\n');
+        while (it.next()) |line| {
+            if (line.len == 0) continue;
+            const t0s = std.mem.indexOf(u8, line, "\"t0\":") orelse continue;
+            const t0 = std.fmt.parseInt(u32, line[t0s + 5 .. std.mem.indexOfScalarPos(u8, line, t0s, ',').?], 10) catch continue;
+            const ts = std.mem.indexOf(u8, line, "\"text\":\"") orelse continue;
+            const te = std.mem.lastIndexOf(u8, line, "\",\"tokens\"") orelse std.mem.lastIndexOfScalar(u8, line, '"').?;
+            const text = std.mem.trim(u8, line[ts + 8 .. te], " ");
+            const sec = t0 / 100;
+            var hb: [48]u8 = undefined;
+            try lines.appendSlice(gpa, try std.fmt.bufPrint(&hb, "[{d}:{d:0>2} = {d}] ", .{ sec / 60, sec % 60, sec }));
+            // unescape the few JSON escapes our own writer produces
+            var k: usize = 0;
+            while (k < text.len) : (k += 1) {
+                if (text[k] == '\\' and k + 1 < text.len) {
+                    k += 1;
+                    try lines.append(gpa, switch (text[k]) {
+                        'n' => '\n',
+                        else => text[k],
+                    });
+                } else try lines.append(gpa, text[k]);
+            }
+            try lines.append(gpa, '\n');
+        }
+        var timer2 = clock.Timer.start();
+        const scs = try zw.llm.scenes(m, gpa, "", "untitled", 0, lines.items, .{});
+        const ns = timer2.lap();
+        for (scs) |sc| {
+            try out.print("{d:6.0}s  {t:<7} {d}  {s}\n", .{ sc.start_s, sc.music, sc.intensity, sc.summary });
+            if (sc.mood.len > 0) try out.print("        mood: {s}\n", .{sc.mood});
+            if (sc.song_title.len > 0) try out.print("        song: {s} - {s}\n", .{ sc.song_artist, sc.song_title });
+        }
+        std.debug.print("zwhisper: {d} scenes in {d:.1} s ({d} prompt tokens in context)\n", .{ scs.len, @as(f64, @floatFromInt(ns)) / 1e9, m.n_past });
+        return;
+    }
+    const toks = if (raw) try m.tok.encode(gpa, prompt_text) else try m.chatPrompt(gpa, system, prompt_text);
+    defer gpa.free(toks);
+    const Sink = struct {
+        out: *Io.Writer,
+        fn emit(s: *const @This(), text: []const u8) void {
+            s.out.writeAll(text) catch {};
+            s.out.flush() catch {};
+        }
+    };
+    const sink = Sink{ .out = out };
+    const st = try m.generate(toks, max_new, &sink, Sink.emit);
+    try out.writeAll("\n");
+    try out.flush();
+    if (zw.ops.profile.enabled) {
+        const pr = zw.ops.profile;
+        std.debug.print("zwhisper: profile linear {d:.0} ms, attention {d:.0} ms, norm {d:.0} ms\n", .{ ms(pr.linear), ms(pr.attention), ms(pr.norm) });
+    }
+    std.debug.print("zwhisper: {d} layers, {d} embd, {d}/{d} heads, vocab {d}; load {d:.0} ms, prompt {d} tokens in {d:.0} ms ({d:.0} tok/s), generated {d} tokens in {d:.0} ms ({d:.1} tok/s), {d} threads\n", .{
+        m.n_layer, m.n_embd, m.n_head, m.n_head_kv, m.n_vocab, ms(load_ns), st.prompt_tokens, ms(st.prompt_ns), @as(f64, @floatFromInt(st.prompt_tokens)) / (@as(f64, @floatFromInt(st.prompt_ns)) / 1e9), st.new_tokens, ms(st.gen_ns), @as(f64, @floatFromInt(st.new_tokens)) / (@as(f64, @floatFromInt(@max(st.gen_ns, 1))) / 1e9), threads,
+    });
 }
 
 fn ms(ns: u64) f64 {

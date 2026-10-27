@@ -1,0 +1,80 @@
+```json
+{
+  "scenes": [
+    {
+      "start": 0,
+      "summary": "Mordecai introduces himself and explains the nature of the world.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 6,
+      "summary": "Mordecai describes the nature of the world and the guildmaster's role.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 12,
+      "summary": "Mordecai explains the nature of the world and the guildmaster's role.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 18,
+      "summary": "Mordecai explains the nature of the world and the guildmaster's role.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 22,
+      "summary": "Mordecai explains the nature of the world and the guildmaster's role.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 25,
+      "summary": "Mordecai explains the nature of the world and the guildmaster's role.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 27,
+      "summary": "Mordecai explains the nature of the world and the guildmaster's role.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 32,
+      "summary": "Mordecai explains the nature of the world and the guildmaster's role.",
+      "music": "score",
+      "mood": "tense low strings, slow pulse, ominous",
+      "intensity": 5,
+      "song_artist": "Mordecai",
+      "song_title": "No One"
+    },
+    {
+      "start": 37,
+      "summary": "Mordecai explains the nature of the world and the guildmaster's role.",
+     
+zwhisper: 28 layers, 1536 embd, 12/2 heads, vocab 151936; load 289 ms, prompt 2017 tokens in 11900 ms (169 tok/s), generated 700 tokens in 136898 ms (5.1 tok/s), 7 threads

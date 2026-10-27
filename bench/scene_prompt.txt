@@ -1,0 +1,81 @@
+You are scoring an audiobook with background music, like a film composer.
+Below is part of chapter 3 ("Mordecai"), as timed lines. Times are seconds from the start of the chapter.
+Split it into scenes, in order. A scene is usually 2 to 8 minutes and changes when the mood, place, or action changes.
+For each scene give:
+- start: the time of the line where it begins (the first scene starts at 0)
+- summary: one short sentence of what happens
+- music: "score" for background music, "silence" for moments that need none (a quiet, intimate, or emotionally raw exchange, a pause for effect), or "song" only when the text says a specific real song is playing
+- mood: for "score", the music to play, as a short description of sound: instruments, tempo, energy, feeling. For example "tense low strings, slow pulse, ominous". Never vocals.
+- intensity: 1 (barely there) to 5 (full action)
+- song_artist and song_title: only for "song", the song the text names
+Answer with JSON only: {"scenes": [{"start": ..., "summary": ..., "music": ..., "mood": ..., "intensity": ...}, ...]}
+Lines:
+[0:00 = 0] or something else. The eyes of the image seemed to bore into me. It was a golden eagle-like
+[0:06 = 6] creature. Wings, angel-like, were folded on its back.
+[0:12 = 12] "Yes. They recreated my home for me, including all my possessions when I decided to become
+[0:20 = 20] a guildmaster. I had but a few moments to grab anything I wanted before they evaporated
+[0:25 = 25] at all. Now, every time I move to a new world, they change my shape. It's something different
+[0:31 = 32] every time, but it's always a type of mob from the current floor of the dungeon. I don't
+[0:36 = 37] know why.
+[0:37 = 38] "I don't believe any of this. So, you're aliens? You're all from a different world?
+[0:45 = 46] Then how does the game or whatever know how we talk? Some of those last notifications
+[0:51 = 51] mentions Jean-Claude Van Damme and incels and steroids.
+[0:55 = 56] Mordecai nodded.
+[0:56 = 57] "You're getting ahead of yourself. Each dungeon is specially built
+[1:01 = 61] for the world it inhabits, and they spend a lot of time. A lot of time making sure the
+[1:08 = 68] locals understand the game and the notifications. They go for authenticity. I'm not really supposed
+[1:13 = 74] to tell you any of this stuff, but I figure if you're going to be stumbling around out
+[1:17 = 77] there, you need to know what's happening.
+[1:19 = 79] "I still don't know what's happening,"
+[1:22 = 82] I said, frustration rising further.
+[1:25 = 85] Mordecai shook his head.
+[1:27 = 87] "You humans are all the same. This is the seventh or eighth human-seated
+[1:32 = 92] world, and it's always the same. You always want to know why. Why can't you just accept
+[1:37 = 98] your circumstances and move on? My people, the Skyfowls, we generally last much longer
+[1:43 = 104] than you humans. You know why? Because we roll with it.
+[1:48 = 109] "I didn't say anything for several moments. There was a lot to parse there."
+[1:56 = 117] "Human-seated world? Did that mean that conspiracy-spouting asshole on TV with the crazy hair was correct?
+[2:05 = 126] That humans weren't unique but a crop, left to grow unattended until… until… this?
+[2:15 = 135] Mordecai saw my look of bewilderment inside.
+[2:18 = 139] "Okay, okay. I'll give you the quick version,"
+[2:22 = 143] he said. He pulled a seat and sat down. He gestured to another chair situated in the
+[2:28 = 149] center of the round carpet.
+[2:32 = 152] "You might as well get comfortable."
+[2:37 = 157] Chapter 4
+[2:40 = 160] There are six basic starter species the Syndicate uses to seed worlds. Humans are one of them.
+[2:47 = 167] They find a compatible world, sprinkle the humans on there, wait a couple thousand years,
+[2:52 = 172] and then reveal themselves to the largest settlement. They usually do this as soon as
+[2:56 = 177] civilization starts to take hold, but long before any sort of industrial revolution.
+[3:02 = 182] As long as there is a working government, this counts as first contact. In a legal sense,
+[3:07 = 187] I mean, which gives them leave to wait a couple thousand additional years, come back and strip
+[3:11 = 192] the planet dry.
+[3:13 = 193] "How?"
+[3:13 = 194] I asked.
+[3:14 = 195] "It all happened in a
+[3:16 = 197] second,
+[3:17 = 197] " Mordecai shrugged. "
+[3:18 = 199] Technology beyond your understanding seems
+[3:21 = 202] like magic. So as far as you're concerned, in this place, it is magic. It's like that
+[3:27 = 208] Wizard of Oz movie, but you'll never get to peek behind the curtain.
+[3:31 = 212] "You've seen Wizard of Oz?"
+[3:33 = 214] "Guildmasters prepare for years for each new
+[3:36 = 217] dungeon world. Kid, I have been preparing for this longer than you have been alive.
+[3:42 = 222] The Advance team arrived in your 1930s, I believe. Whenever that book came out, uh,
+[3:47 = 228] The Hobbit, I left the last system and entered the prep phase in your year 1964. I know this
+[3:53 = 234] world and your customs just as well as you do. I even once got to shapeshift into a human
+[3:59 = 240] and go out into the world. I went to a blockbuster video and stole a bunch of James Bond tapes.
+[4:05 = 245] I was so happy once you guys started digitizing everything.
+[4:08 = 248] "How long have you been a guildmaster?"
+[4:11 = 252] Mordecai shook his head.
+[4:13 = 254] "You don't even want
+[4:15 = 255] to know.
+[4:16 = 256] " "So, anyway, your planet defaulted on claim
+[4:19 = 260] in Earth as a sovereign entity. You had fifty local years since first contact and first
+[4:25 = 266] contact was several thousand years ago, whenever those pyramid things were built. The Borant
+[4:31 = 271] Corporation has a huge backlog of worlds to mine, and your time is now.
+[4:37 = 278] My head swam.
+[4:39 = 280] "So, they're taking all of our minerals?"
+[4:45 = 286] Mordecai nodded.
+[4:47 = 287] "Sort of. Borant deals in rare elements
+[4:50 = 290] and the like. What they end up mining will fit on a single transport. I don't know too
+[4:55 = 295] much about that part of the process. The elements involved are unimportant.

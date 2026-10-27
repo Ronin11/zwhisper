@@ -1,0 +1,16 @@
+```json
+{
+  "scenes": [
+    {
+      "start": 0,
+      "summary": "Mordecai introduces himself and explains the nature of his existence.",
+      "music_score": "",
+      // No specific mood or intensity as it's a brief introduction.
+    },
+    {
+      // Add more scenes based on the next few lines if needed
+    }
+  ]
+}
+```
+zwhisper: 28 layers, 1536 embd, 12/2 heads, vocab 151936; load 330 ms, prompt 2049 tokens in 12001 ms (171 tok/s), generated 80 tokens in 9971 ms (8.0 tok/s), 7 threads

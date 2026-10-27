@@ -400,6 +400,39 @@ pub fn layerNorm(pool: *Pool, x: []const f32, m: usize, n: usize, w: []const f32
     if (profile.enabled) profile.norm += t.lap();
 }
 
+/// RMSNorm over each row of x[m][n] into out: x / sqrt(mean(x^2) + eps) * w.
+pub fn rmsNorm(x: []const f32, m: usize, n: usize, w: []const f32, eps: f32, out: []f32) void {
+    for (0..m) |i| {
+        const row = x[i * n ..][0..n];
+        var sv: Vec = @splat(0);
+        var j: usize = 0;
+        while (j + V <= n) : (j += V) {
+            const v: Vec = row[j..][0..V].*;
+            sv = @mulAdd(Vec, v, v, sv);
+        }
+        var ss = @reduce(.Add, sv);
+        while (j < n) : (j += 1) ss += row[j] * row[j];
+        const inv = 1.0 / @sqrt(ss / @as(f32, @floatFromInt(n)) + eps);
+        const iv: Vec = @splat(inv);
+        const o = out[i * n ..][0..n];
+        j = 0;
+        while (j + V <= n) : (j += V) o[j..][0..V].* = @as(Vec, row[j..][0..V].*) * iv * @as(Vec, w[j..][0..V].*);
+        while (j < n) : (j += 1) o[j] = row[j] * inv * w[j];
+    }
+}
+
+inline fn siluVec(x: Vec) Vec {
+    const one: Vec = @splat(1.0);
+    return x / (one + expVec(-x));
+}
+
+/// gate = silu(gate) * up, elementwise.
+pub fn siluMul(gate: []f32, up: []const f32) void {
+    var i: usize = 0;
+    while (i + V <= gate.len) : (i += V) gate[i..][0..V].* = siluVec(gate[i..][0..V].*) * @as(Vec, up[i..][0..V].*);
+    while (i < gate.len) : (i += 1) gate[i] = gate[i] / (1.0 + @exp(-gate[i])) * up[i];
+}
+
 /// In-place softmax of a row, vectorized exp.
 pub fn softmaxRow(x: []f32) void {
     var mxv: Vec = @splat(-std.math.inf(f32));
@@ -434,96 +467,136 @@ pub fn softmaxRow(x: []f32) void {
 
 pub const q_block: usize = 64;
 
+/// Shapes for one attention call. Query heads may share key/value heads (grouped-query
+/// attention): head h reads kv head h / (n_head / n_head_kv).
+pub const AttnShape = struct {
+    n_q: usize,
+    n_kv: usize,
+    n_head: usize,
+    n_head_kv: usize,
+    d: usize,
+    /// Row strides, in floats.
+    q_stride: usize,
+    kv_stride: usize,
+    out_stride: usize,
+    causal: bool,
+    /// When set, `k` is already [n_head_kv][d][kt_stride] (keys along the last axis),
+    /// as a cache kept in that layout; no transpose is done. kt_stride must be a
+    /// multiple of V and columns beyond n_kv must hold finite values.
+    kt_stride: ?usize = null,
+};
+
 const AttnJob = struct {
     q: []const f32,
     k: []const f32,
     v: []const f32,
     out: []f32,
-    n_q: usize,
-    n_kv: usize,
+    sh: AttnShape,
     n_kv_pad: usize,
-    n_state: usize,
-    n_head: usize,
-    causal: bool,
-    kt: []f32, // [n_head][d][n_kv_pad]
+    kt: []f32, // [n_head_kv][d][n_kv_pad]
     scores: []f32, // per task: q_block * n_kv_pad
     n_qblocks: usize,
 
     fn transpose(j: *const AttnJob, h: usize) void {
-        const d = j.n_state / j.n_head;
+        const d = j.sh.d;
         const kt = j.kt[h * d * j.n_kv_pad ..][0 .. d * j.n_kv_pad];
-        for (0..j.n_kv) |t| {
-            const src = j.k[t * j.n_state + h * d ..][0..d];
+        for (0..j.sh.n_kv) |t| {
+            const src = j.k[t * j.sh.kv_stride + h * d ..][0..d];
             for (0..d) |p| kt[p * j.n_kv_pad + t] = src[p];
         }
-        for (0..d) |p| for (j.n_kv..j.n_kv_pad) |t| {
+        for (0..d) |p| for (j.sh.n_kv..j.n_kv_pad) |t| {
             kt[p * j.n_kv_pad + t] = 0;
         };
     }
 
     fn run(j: *const AttnJob, task: usize) void {
-        const d = j.n_state / j.n_head;
+        const sh = j.sh;
+        const d = sh.d;
         const h = task / j.n_qblocks;
+        const hk = h / (sh.n_head / sh.n_head_kv);
         const qb = task % j.n_qblocks;
         const q0 = qb * q_block;
-        const q1 = @min(q0 + q_block, j.n_q);
+        const q1 = @min(q0 + q_block, sh.n_q);
         const m = q1 - q0;
         const sc = j.scores[task * q_block * j.n_kv_pad ..][0 .. m * j.n_kv_pad];
-        const kt = j.kt[h * d * j.n_kv_pad ..];
-        // S[m][n_kv_pad] = Q[q0..q1, head h] . KT
-        gemm.pvBlock(j.q.ptr + q0 * j.n_state + h * d, j.n_state, kt.ptr, j.n_kv_pad, sc.ptr, j.n_kv_pad, m, d, j.n_kv_pad);
+        const kt = j.kt[hk * d * j.n_kv_pad ..];
+        // S[m][cols] = Q[q0..q1, head h] . KT; only the columns that hold keys
+        const cols = (sh.n_kv + V - 1) / V * V;
+        gemm.pvBlock(j.q.ptr + q0 * sh.q_stride + h * d, sh.q_stride, kt.ptr, j.n_kv_pad, sc.ptr, j.n_kv_pad, m, d, cols);
         const scl: f32 = 1.0 / @sqrt(@as(f32, @floatFromInt(d)));
         for (0..m) |i| {
-            const row = sc[i * j.n_kv_pad ..][0..j.n_kv_pad];
-            const limit = if (j.causal) j.n_kv - j.n_q + q0 + i + 1 else j.n_kv;
+            const row = sc[i * j.n_kv_pad ..][0..cols];
+            const limit = if (sh.causal) sh.n_kv - sh.n_q + q0 + i + 1 else sh.n_kv;
             scale(row[0..limit], scl);
             softmaxRow(row[0..limit]);
             @memset(row[limit..], 0);
         }
         // O[m][d] = S . V_h
-        gemm.pvBlock(sc.ptr, j.n_kv_pad, j.v.ptr + h * d, j.n_state, j.out.ptr + q0 * j.n_state + h * d, j.n_state, m, j.n_kv, d);
+        gemm.pvBlock(sc.ptr, j.n_kv_pad, j.v.ptr + hk * d, sh.kv_stride, j.out.ptr + q0 * sh.out_stride + h * d, sh.out_stride, m, sh.n_kv, d);
     }
 };
 
-/// Scratch floats needed by `attention` for these shapes.
-pub fn attentionScratch(n_q: usize, n_kv: usize, n_head: usize, n_state: usize) usize {
+/// Scratch floats needed by `attentionEx` for these shapes.
+pub fn attentionScratchEx(n_q: usize, n_kv: usize, n_head: usize, n_head_kv: usize, d: usize) usize {
     const n_kv_pad = (n_kv + V - 1) / V * V;
     const n_qblocks = (n_q + q_block - 1) / q_block;
-    const d = n_state / n_head;
-    return n_head * d * n_kv_pad + n_head * n_qblocks * q_block * n_kv_pad;
+    return n_head_kv * d * n_kv_pad + n_head * n_qblocks * q_block * n_kv_pad;
 }
 
-pub fn attention(pool: *Pool, q: []const f32, k: []const f32, v: []const f32, n_q: usize, n_kv: usize, n_state: usize, n_head: usize, causal: bool, scratch: []f32, out: []f32) void {
-    var t = clock.Timer.start();
-    const d = n_state / n_head;
-    std.debug.assert(d % V == 0);
-    const n_kv_pad = (n_kv + V - 1) / V * V;
+/// Scratch floats when keys are kept transposed with stride `kt_stride`.
+pub fn attentionScratchKT(n_q: usize, kt_stride: usize, n_head: usize) usize {
     const n_qblocks = (n_q + q_block - 1) / q_block;
-    std.debug.assert(scratch.len >= attentionScratch(n_q, n_kv, n_head, n_state));
-    const kt_len = n_head * d * n_kv_pad;
+    return n_head * n_qblocks * q_block * kt_stride;
+}
+
+/// Scratch floats needed by `attention` for these shapes.
+pub fn attentionScratch(n_q: usize, n_kv: usize, n_head: usize, n_state: usize) usize {
+    return attentionScratchEx(n_q, n_kv, n_head, n_head, n_state / n_head);
+}
+
+pub fn attentionEx(pool: *Pool, q: []const f32, k: []const f32, v: []const f32, sh: AttnShape, scratch: []f32, out: []f32) void {
+    var t = clock.Timer.start();
+    std.debug.assert(sh.d % V == 0 and sh.n_head % sh.n_head_kv == 0);
+    const n_kv_pad = if (sh.kt_stride) |st| st else (sh.n_kv + V - 1) / V * V;
+    const n_qblocks = (sh.n_q + q_block - 1) / q_block;
+    const kt_len = if (sh.kt_stride != null) 0 else sh.n_head_kv * sh.d * n_kv_pad;
+    std.debug.assert(scratch.len >= kt_len + sh.n_head * n_qblocks * q_block * n_kv_pad);
     const job = AttnJob{
         .q = q,
         .k = k,
         .v = v,
         .out = out,
-        .n_q = n_q,
-        .n_kv = n_kv,
+        .sh = sh,
         .n_kv_pad = n_kv_pad,
-        .n_state = n_state,
-        .n_head = n_head,
-        .causal = causal,
-        .kt = scratch[0..kt_len],
+        .kt = if (sh.kt_stride != null) @constCast(k) else scratch[0..kt_len],
         .scores = scratch[kt_len..],
         .n_qblocks = n_qblocks,
     };
-    if (n_q * n_kv * n_state < small_op_macs) {
-        for (0..n_head) |h| AttnJob.transpose(&job, h);
-        for (0..n_head * n_qblocks) |i| AttnJob.run(&job, i);
-    } else {
-        pool.parallelFor(n_head, &job, AttnJob.transpose);
-        pool.parallelFor(n_head * n_qblocks, &job, AttnJob.run);
+    const small = sh.n_q * sh.n_kv * sh.n_head * sh.d < small_op_macs;
+    if (sh.kt_stride == null) {
+        if (small) {
+            for (0..sh.n_head_kv) |h| AttnJob.transpose(&job, h);
+        } else pool.parallelFor(sh.n_head_kv, &job, AttnJob.transpose);
     }
+    if (small) {
+        for (0..sh.n_head * n_qblocks) |i| AttnJob.run(&job, i);
+    } else pool.parallelFor(sh.n_head * n_qblocks, &job, AttnJob.run);
     if (profile.enabled) profile.attention += t.lap();
+}
+
+/// Multi-head attention with q, k, v all [rows][n_state] and n_head heads of n_state / n_head.
+pub fn attention(pool: *Pool, q: []const f32, k: []const f32, v: []const f32, n_q: usize, n_kv: usize, n_state: usize, n_head: usize, causal: bool, scratch: []f32, out: []f32) void {
+    attentionEx(pool, q, k, v, .{
+        .n_q = n_q,
+        .n_kv = n_kv,
+        .n_head = n_head,
+        .n_head_kv = n_head,
+        .d = n_state / n_head,
+        .q_stride = n_state,
+        .kv_stride = n_state,
+        .out_stride = n_state,
+        .causal = causal,
+    }, scratch, out);
 }
 
 // ---------------------------------------------------------------------------------------

@@ -229,6 +229,24 @@ pub const Q8 = struct {
         return .{ .q = q, .scales = scales, .n = n, .k = k };
     }
 
+    /// Build from GGUF q8_0 blocks (f16 scale + 32 int8 per block): same int8, f32 scales.
+    pub fn fromQ8_0(gpa: std.mem.Allocator, data: []const u8, n: usize, k: usize) !Q8 {
+        std.debug.assert(k % q8_block == 0);
+        const nb = k / q8_block;
+        std.debug.assert(data.len >= n * nb * 34);
+        const q = try gpa.alloc(i8, n * k);
+        errdefer gpa.free(q);
+        const scales = try gpa.alloc(f32, n * nb);
+        errdefer gpa.free(scales);
+        var p: usize = 0;
+        for (0..n * nb) |b| {
+            scales[b] = @floatCast(@as(f16, @bitCast(std.mem.readInt(u16, data[p..][0..2], .little))));
+            @memcpy(q[b * q8_block ..][0..q8_block], @as([]const i8, @ptrCast(data[p + 2 ..][0..q8_block])));
+            p += 34;
+        }
+        return .{ .q = q, .scales = scales, .n = n, .k = k };
+    }
+
     pub fn deinit(w: *Q8, gpa: std.mem.Allocator) void {
         gpa.free(w.q);
         gpa.free(w.scales);

@@ -58,6 +58,24 @@ Three levers, all on by default or one flag away:
 Bigger models help most: `small.en` already gets Borant, Van Damme, Hobbit and Wizard of
 Oz right where `base.en` guesses.
 
+## The language model, on the phone
+
+The same engine runs a decoder-only model from a GGUF file (Qwen2 family: grouped-query
+attention, rotary positions, SwiGLU, int8 weights), so the scene step that used to need
+a server can run next to the transcriber:
+
+```
+zig-out/bin/zwhisper llm models/qwen2.5-1.5b-instruct-q8_0.gguf "What is the capital of France?"
+zig-out/bin/zwhisper scenes models/qwen2.5-1.5b-instruct-q8_0.gguf transcript.jsonl
+```
+
+`scenes` is template-driven: the JSON scaffolding is fed as forced tokens and the model
+only fills the values, with enums and digits chosen by comparing logits. A small model
+can't hand back placeholders, comments or an unterminated list that way. On this
+machine Qwen2.5 1.5B reads a five-minute window (2000 tokens) in 12 s and generates at
+34 tokens per second; 0.5B is about three times faster. The prompt side is what costs on
+a phone, which is the argument for distilling the task into a small tagger next.
+
 ## How it works
 
 | Stage | File | Notes |
@@ -69,6 +87,7 @@ Oz right where `base.en` guesses.
 | Decoder | `decoder.zig` | KV cache, cross K/V projected once per window, logits for the last token only |
 | Decoding | `transcribe.zig` | greedy, whisper.cpp's timestamp rules, previous-window conditioning, prompt and hotwords, streaming emit |
 | Prompts | `tokenizer.zig` | whisper.cpp's greedy longest-match tokenizer for prompts and hotwords |
+| LLM | `gguf.zig`, `bpe.zig`, `llm.zig` | GGUF loader, byte-level BPE with merges, Qwen2 forward pass with a transposed key cache, greedy generation with repetition penalty, template-driven scenes |
 | Voices | `voice.zig` | pitch by autocorrelation, 16-band spectral envelope, online clustering |
 
 Encoder weights are stored as f16 (what the files hold) and widened to f32 inside the

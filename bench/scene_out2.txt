@@ -1,0 +1,17 @@
+```json
+{
+  "scenes": [
+    {
+      "start": 0,
+      "summary": "...",
+      "music": "",
+      "mood": "",
+      "intensity": 2
+    },
+    {
+        // Add scene summary and music here based on the next lines...
+        ...
+    }
+]
+```
+zwhisper: 28 layers, 1536 embd, 12/2 heads, vocab 151936; load 323 ms, prompt 2065 tokens in 19801 ms (104 tok/s), generated 67 tokens in 12053 ms (5.6 tok/s), 7 threads
