@@ -1,0 +1,7 @@
+testdata/*.wav
+models/
+zig-out/
+.zig-cache/
+ref/build/
+bench/*.jsonl
+*.f32

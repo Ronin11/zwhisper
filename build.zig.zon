@@ -1,0 +1,15 @@
+.{
+    .name = .zwhisper,
+    .version = "0.0.1",
+    .fingerprint = 0x8a02cc4f920157d5,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "include",
+        "LICENSE",
+        "README.md",
+    },
+}

@@ -1,0 +1,1 @@
+zwhisper: 300.0 s audio, 12 windows, 1095 tokens, 69 segments, 3 voices; mel 394 ms, load 22 ms, encode 2149 ms, decode 3622 ms, voices 111 ms, total 5771 ms (52.0x realtime, 4 threads)
