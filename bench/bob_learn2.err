@@ -1,0 +1,2 @@
+zwhisper: hotwords: Romers Romer
+zwhisper: 300.0 s audio, 12 windows, 1159 tokens, 84 segments, 0 voices; mel 523 ms, load 131 ms, encode 3072 ms, decode 10558 ms, voices 0 ms, total 13631 ms (22.0x realtime, 7 threads)

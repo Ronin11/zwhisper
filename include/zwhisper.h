@@ -38,11 +38,18 @@ void zw_close(zw_handle *h);
 /* 0 ok, 1 stopped through *stop, 2 error. Segments arrive on the calling thread. */
 int zw_transcribe(zw_handle *h, const float *samples, size_t n, int64_t offset_ms,
                   bool voices, bool split_quotes, bool condition_on_previous,
-                  const bool *stop, zw_emit emit, void *user, zw_stats *stats_or_null);
+                  bool learn_names, const bool *stop, zw_emit emit, void *user,
+                  zw_stats *stats_or_null);
+
+/* Names and odd words, spelt right, in the book's own prose style (quotes included):
+   the decoder sees this text before every window. Empty clears it. 0 ok, 2 error. */
+int zw_set_prompt(zw_handle *h, const uint8_t *text, size_t len);
+/* Comma-separated words and phrases to favour while decoding. Replaces earlier ones. */
+int zw_set_hotwords(zw_handle *h, const uint8_t *list, size_t len);
 
 void zw_reset_voices(zw_handle *h);
 uint32_t zw_n_voices(zw_handle *h);
-int zw_version(void);
+int zw_version(void); /* 2 */
 
 #ifdef __cplusplus
 }

@@ -118,7 +118,7 @@ const Sink = struct {
 /// Transcribe `n` samples of 16 kHz mono f32. Segment times are offset by `offset_ms`.
 /// `stop`, when non-null, is polled between tokens; set it to end early.
 /// Returns 0 on success, 1 when stopped, 2 on error.
-export fn zw_transcribe(h: *Handle, samples: [*]const f32, n: usize, offset_ms: i64, voices: bool, split_quotes: bool, condition_on_previous: bool, stop: ?*const bool, emit: Emit, user: ?*anyopaque, stats_out: ?*Stats) c_int {
+export fn zw_transcribe(h: *Handle, samples: [*]const f32, n: usize, offset_ms: i64, voices: bool, split_quotes: bool, condition_on_previous: bool, learn_names: bool, stop: ?*const bool, emit: Emit, user: ?*anyopaque, stats_out: ?*Stats) c_int {
     const audio = samples[0..n];
     var spec = zw.mel.logMel(gpa, audio, h.model.filters, h.model.hp.n_mels) catch return 2;
     defer spec.deinit(gpa);
@@ -128,6 +128,7 @@ export fn zw_transcribe(h: *Handle, samples: [*]const f32, n: usize, offset_ms: 
         .voices = voices,
         .split_quotes = split_quotes,
         .condition_on_previous = condition_on_previous,
+        .learn_names = learn_names,
         .stop = stop_atomic,
     }, &sink, Sink.call) catch |err| return if (err == error.Stopped) 1 else 2;
     if (stats_out) |so| so.* = .{
@@ -142,7 +143,21 @@ export fn zw_transcribe(h: *Handle, samples: [*]const f32, n: usize, offset_ms: 
     return 0;
 }
 
+/// Text the decoder sees before every window (names spelt right, in the book's own
+/// prose style, quotes included). Empty clears it. Returns 0, or 2 on failure.
+export fn zw_set_prompt(h: *Handle, text: [*]const u8, len: usize) c_int {
+    h.engine.setPrompt(text[0..len]) catch return 2;
+    return 0;
+}
+
+/// Comma-separated words and phrases to favour while decoding. Replaces earlier ones
+/// and forgets learned names. Returns 0, or 2 on failure.
+export fn zw_set_hotwords(h: *Handle, list: [*]const u8, len: usize) c_int {
+    h.engine.setHotwords(list[0..len]) catch return 2;
+    return 0;
+}
+
 /// Library version, for the header to check against.
 export fn zw_version() c_int {
-    return 1;
+    return 2;
 }

@@ -112,6 +112,8 @@ pub const Model = struct {
     filters_n_fft: u32,
     /// id -> UTF-8 bytes, straight from the file (GPT-2 byte-level BPE already decoded).
     vocab: [][]const u8,
+    /// bytes -> id, for prompts and hotwords.
+    token_ids: std.StringHashMapUnmanaged(u32),
     tensors: std.StringHashMapUnmanaged(Tensor),
 
     /// Parse the mapped file. `bytes` must outlive the model.
@@ -139,6 +141,12 @@ pub const Model = struct {
         }
         // English-only models list fewer tokens than n_vocab; whisper.cpp names the rest.
         while (i < hp.n_vocab) : (i += 1) vocab[i] = "";
+        var token_ids: std.StringHashMapUnmanaged(u32) = .empty;
+        errdefer token_ids.deinit(gpa);
+        try token_ids.ensureTotalCapacity(gpa, @intCast(n_vocab_file));
+        for (vocab[0..n_vocab_file], 0..) |v, id| {
+            if (v.len > 0) token_ids.putAssumeCapacity(v, @intCast(id));
+        }
 
         var tensors: std.StringHashMapUnmanaged(Tensor) = .empty;
         errdefer tensors.deinit(gpa);
@@ -168,12 +176,14 @@ pub const Model = struct {
             .filters_n_mel = n_mel,
             .filters_n_fft = n_fft,
             .vocab = vocab,
+            .token_ids = token_ids,
             .tensors = tensors,
         };
     }
 
     pub fn deinit(m: *Model) void {
         m.tensors.deinit(m.gpa);
+        m.token_ids.deinit(m.gpa);
         m.gpa.free(m.vocab);
         m.gpa.free(m.filters);
         m.* = undefined;
@@ -194,10 +204,9 @@ pub const Model = struct {
         return if (id < m.vocab.len) m.vocab[id] else "";
     }
 
-    /// Id of the token whose text is exactly `s`, if any (vocab is ~51k; linear scan is fine once).
+    /// Id of the token whose text is exactly `s`, if any.
     pub fn tokenId(m: *const Model, s: []const u8) ?u32 {
-        for (m.vocab, 0..) |v, i| if (std.mem.eql(u8, v, s)) return @intCast(i);
-        return null;
+        return m.token_ids.get(s);
     }
 };
 

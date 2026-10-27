@@ -14,6 +14,7 @@ const ops = @import("ops.zig");
 const model = @import("model.zig");
 const mel = @import("mel.zig");
 const voice = @import("voice.zig");
+const tokenizer = @import("tokenizer.zig");
 const clock = @import("clock.zig");
 const Encoder = @import("encoder.zig").Encoder;
 const Decoder = @import("decoder.zig").Decoder;
@@ -48,12 +49,23 @@ pub const Options = struct {
     split_quotes: bool = true,
     /// Stop early; checked between tokens.
     stop: ?*const std.atomic.Value(bool) = null,
+    /// Pick up capitalised words the model is sure of and boost them from then on.
+    learn_names: bool = true,
+};
+
+/// A word or phrase to favour while decoding, as the token sequences it can start with.
+const Hotword = struct {
+    text: []u8,
+    /// Variants: with a leading space (mid-sentence) and without (after a quote).
+    forms: [2][]u32,
 };
 
 pub const Stats = struct {
     windows: usize = 0,
     tokens: usize = 0,
     segments: usize = 0,
+    /// Segments dropped for reciting the prompt.
+    dropped: usize = 0,
     voices: usize = 0,
     encode_ns: u64 = 0,
     decode_ns: u64 = 0,
@@ -75,6 +87,14 @@ pub const Engine = struct {
     tok_space: u32,
     /// Voice clusters persist across calls so ids stay stable through a book.
     voices: voice.Voices,
+    /// Initial prompt tokens, carried into every window after a `prev` marker.
+    prompt_tokens: []u32 = &.{},
+    /// Words boosted during decoding: given hotwords plus learned names.
+    hotwords: std.ArrayList(Hotword) = .empty,
+    /// Added to a token's logit when it continues a hotword; the first token gets half.
+    hotword_bias: f32 = 5.0,
+    /// Capitalised words seen so far and how often, for learning names.
+    seen_caps: std.StringHashMapUnmanaged(u32) = .empty,
 
     pub fn init(gpa: std.mem.Allocator, m: *const model.Model, n_threads: usize) !*Engine {
         const e = try gpa.create(Engine);
@@ -104,8 +124,114 @@ pub const Engine = struct {
         e.voices = try voice.Voices.init(e.gpa, voice.n_bands);
     }
 
+    /// Text the decoder sees before every window: names and odd words spelt the way
+    /// they should come out. Replaces any earlier prompt.
+    pub fn setPrompt(e: *Engine, text: []const u8) !void {
+        e.gpa.free(e.prompt_tokens);
+        e.prompt_tokens = &.{};
+        const max = e.m.hp.n_text_ctx / 2 / 2; // leave room for rolling context
+        const toks = try tokenizer.encode(e.gpa, e.m, text);
+        if (toks.len > max) {
+            const keep = try e.gpa.dupe(u32, toks[toks.len - max ..]);
+            e.gpa.free(toks);
+            e.prompt_tokens = keep;
+        } else {
+            e.prompt_tokens = toks;
+        }
+    }
+
+    /// Add a word or phrase to favour while decoding (names, places, invented words).
+    pub fn addHotword(e: *Engine, text: []const u8) !void {
+        const trimmed = std.mem.trim(u8, text, " \t\r\n");
+        if (trimmed.len == 0) return;
+        for (e.hotwords.items) |h| if (std.mem.eql(u8, h.text, trimmed)) return;
+        const spaced = try std.fmt.allocPrint(e.gpa, " {s}", .{trimmed});
+        defer e.gpa.free(spaced);
+        const a = try tokenizer.encode(e.gpa, e.m, spaced);
+        errdefer e.gpa.free(a);
+        const b = try tokenizer.encode(e.gpa, e.m, trimmed);
+        errdefer e.gpa.free(b);
+        try e.hotwords.append(e.gpa, .{ .text = try e.gpa.dupe(u8, trimmed), .forms = .{ a, b } });
+    }
+
+    /// Comma-separated hotwords.
+    pub fn setHotwords(e: *Engine, list: []const u8) !void {
+        e.clearHotwords();
+        var it = std.mem.splitScalar(u8, list, ',');
+        while (it.next()) |w| try e.addHotword(w);
+    }
+
+    pub fn clearHotwords(e: *Engine) void {
+        for (e.hotwords.items) |h| {
+            e.gpa.free(h.text);
+            e.gpa.free(h.forms[0]);
+            e.gpa.free(h.forms[1]);
+        }
+        e.hotwords.clearRetainingCapacity();
+        var it = e.seen_caps.keyIterator();
+        while (it.next()) |k| e.gpa.free(k.*);
+        e.seen_caps.clearRetainingCapacity();
+    }
+
+    /// Boost the logits of tokens that would continue a hotword after `cur`.
+    fn applyHotwords(e: *Engine, cur: []const u32) void {
+        if (e.hotwords.items.len == 0) return;
+        const eot = e.m.tok.eot;
+        for (e.hotwords.items) |h| for (h.forms) |form| {
+            if (form.len == 0) continue;
+            // longest prefix of the form that matches the tail of cur
+            var p: usize = @min(form.len - 1, cur.len);
+            while (true) : (p -= 1) {
+                if (std.mem.eql(u32, form[0..p], cur[cur.len - p ..])) break;
+                if (p == 0) break;
+            }
+            const next = form[p];
+            if (next < eot) e.logits[next] += if (p == 0) e.hotword_bias * 0.5 else e.hotword_bias;
+            if (p == 0) continue;
+        };
+    }
+
+    /// Note capitalised words in finished text; after a second sighting they become hotwords.
+    fn learnNames(e: *Engine, text: []const u8) !void {
+        const skip = [_][]const u8{ "The", "This", "That", "There", "They", "Then", "When", "What", "Where", "Which", "While", "With", "Who", "Why", "How", "And", "But", "For", "Not", "Yes", "You", "Your", "His", "Her", "She", "Him", "Its", "Our", "Was", "Were", "Are", "Had", "Has", "Have", "Did", "Does", "Okay", "Well", "Now", "Just", "Chapter", "Mister", "Mrs", "Miss", "Sir", "Maybe", "Still", "After", "Before", "Even", "Only", "Some", "Every", "Nothing", "Something", "Everyone", "Someone", "Anyone", "Nobody" };
+        var i: usize = 0;
+        while (i < text.len) {
+            if (!std.ascii.isUpper(text[i])) {
+                i += 1;
+                continue;
+            }
+            // only mid-sentence sightings count: a capital after a full stop, a quote or
+            // at the start of the span says nothing about the word being a name
+            var k = i;
+            while (k > 0 and text[k - 1] == ' ') k -= 1;
+            const sentence_initial = k == 0 or text[k - 1] == '.' or text[k - 1] == '!' or text[k - 1] == '?' or text[k - 1] == '"';
+            var j = i + 1;
+            while (j < text.len and std.ascii.isAlphabetic(text[j])) j += 1;
+            const word = text[i..j];
+            i = j;
+            if (sentence_initial or word.len < 4) continue;
+            var listed = false;
+            for (skip) |w| if (std.mem.eql(u8, w, word)) {
+                listed = true;
+            };
+            if (listed) continue;
+            // all-caps shouting is not a name
+            if (std.ascii.isUpper(word[1])) continue;
+            if (e.seen_caps.getPtr(word)) |n| {
+                n.* += 1;
+                if (n.* == 2) try e.addHotword(word);
+            } else {
+                try e.seen_caps.put(e.gpa, try e.gpa.dupe(u8, word), 1);
+            }
+        }
+    }
+
     pub fn deinit(e: *Engine) void {
         const gpa = e.gpa;
+        e.clearHotwords();
+        e.hotwords.deinit(gpa);
+        e.seen_caps.deinit(gpa);
+        gpa.free(e.prompt_tokens);
         e.voices.deinit();
         gpa.free(e.logprobs);
         gpa.free(e.logits);
@@ -159,14 +285,20 @@ pub const Engine = struct {
             stats.encode_ns += timer.lap();
             stats.windows += 1;
 
-            // prompt: [prev, past text...] + [sot]
+            // prompt: [prev, initial prompt, past text...] + [sot]
             prompt.clearRetainingCapacity();
-            if (opts.condition_on_previous and prompt_past.items.len > 0) {
+            const past_ok = opts.condition_on_previous and prompt_past.items.len > 0;
+            if (e.prompt_tokens.len > 0 or past_ok) {
                 try prompt.append(e.gpa, tok.prev);
-                const n_take = @min(max_prompt_ctx - 1, prompt_past.items.len);
-                try prompt.appendSlice(e.gpa, prompt_past.items[prompt_past.items.len - n_take ..]);
+                try prompt.appendSlice(e.gpa, e.prompt_tokens);
+                if (past_ok) {
+                    const budget = max_prompt_ctx - 1 - e.prompt_tokens.len;
+                    const n_take = @min(budget, prompt_past.items.len);
+                    try prompt.appendSlice(e.gpa, prompt_past.items[prompt_past.items.len - n_take ..]);
+                }
             }
             try prompt.append(e.gpa, tok.sot);
+            const prompt_fixed = 1 + e.prompt_tokens.len; // prev + initial prompt, not rolled
 
             tokens.clearRetainingCapacity();
             tids.clearRetainingCapacity();
@@ -203,7 +335,7 @@ pub const Engine = struct {
                     // a timestamp after text closes a segment; emit it now
                     const t1 = seek + 2 * (s.tid -| tok.beg);
                     if (text.items.len > 0) {
-                        try e.finish(&stats, voices, tag_voices, opts.split_quotes, samples, spec, feat, pitch_scratch, .{ .t0 = seg_t0, .t1 = t1, .text = text.items, .tokens = tokens.items[seg_start..] }, ctx, emit);
+                        try e.finish(&stats, voices, tag_voices, opts.split_quotes, opts.learn_names, samples, spec, feat, pitch_scratch, .{ .t0 = seg_t0, .t1 = t1, .text = text.items, .tokens = tokens.items[seg_start..] }, ctx, emit);
                     }
                     text.clearRetainingCapacity();
                     seg_t0 = t1;
@@ -245,14 +377,14 @@ pub const Engine = struct {
                 text.clearRetainingCapacity();
                 for (used[seg_start..]) |id| if (id < tok.eot) try text.appendSlice(e.gpa, e.m.tokenText(id));
                 if (text.items.len > 0) {
-                    try e.finish(&stats, voices, tag_voices, opts.split_quotes, samples, spec, feat, pitch_scratch, .{ .t0 = seg_t0, .t1 = seek + seek_delta, .text = text.items, .tokens = used[seg_start..] }, ctx, emit);
+                    try e.finish(&stats, voices, tag_voices, opts.split_quotes, opts.learn_names, samples, spec, feat, pitch_scratch, .{ .t0 = seg_t0, .t1 = seek + seek_delta, .text = text.items, .tokens = used[seg_start..] }, ctx, emit);
                 }
             }
 
             // rolling context for the next window: what was fed as history this time (after
             // `prev`, before `sot`) plus what was kept from this window
             if (opts.condition_on_previous) {
-                const old: []const u32 = if (prompt.items.len > 1) prompt.items[1 .. prompt.items.len - 1] else &.{};
+                const old: []const u32 = if (prompt.items.len > prompt_fixed) prompt.items[prompt_fixed .. prompt.items.len - 1] else &.{};
                 const merged = try e.gpa.alloc(u32, old.len + used.len);
                 defer e.gpa.free(merged);
                 @memcpy(merged[0..old.len], old);
@@ -266,10 +398,35 @@ pub const Engine = struct {
         return stats;
     }
 
+    /// True when the segment's text tokens are a verbatim run out of the initial prompt:
+    /// the decoder sometimes recites the prompt over an ambiguous start instead of
+    /// listening, and that is never what the audio said.
+    fn echoesPrompt(e: *const Engine, tokens: []const u32) bool {
+        const eot = e.m.tok.eot;
+        var n: usize = 0;
+        var buf: [32]u32 = undefined;
+        for (tokens) |t| if (t < eot and n < buf.len) {
+            buf[n] = t;
+            n += 1;
+        };
+        if (n < 5) return false;
+        // any run covering most of the segment that appears verbatim in the prompt
+        const run = @max(5, n * 3 / 5);
+        if (e.prompt_tokens.len < run) return false;
+        var i: usize = 0;
+        while (i + run <= n) : (i += 1) {
+            if (std.mem.indexOf(u32, e.prompt_tokens, buf[i .. i + run]) != null) return true;
+        }
+        return false;
+    }
+
     /// Split a segment at quotes (optionally), tag each span with its voice (when enabled)
     /// and hand the spans to the callback in order.
-    fn finish(e: *Engine, stats: *Stats, voices: *voice.Voices, tag: bool, split: bool, samples: ?[]const f32, spec: *const mel.Mel, feat: []f32, pitch_scratch: []f32, seg: Segment, ctx: anytype, comptime emit: fn (@TypeOf(ctx), Segment) void) !void {
-        _ = e;
+    fn finish(e: *Engine, stats: *Stats, voices: *voice.Voices, tag: bool, split: bool, learn: bool, samples: ?[]const f32, spec: *const mel.Mel, feat: []f32, pitch_scratch: []f32, seg: Segment, ctx: anytype, comptime emit: fn (@TypeOf(ctx), Segment) void) !void {
+        if (e.echoesPrompt(seg.tokens)) {
+            stats.dropped += 1;
+            return;
+        }
         const text = seg.text;
         var start: usize = 0;
         var quoted = false;
@@ -281,14 +438,14 @@ pub const Engine = struct {
                 if (text[i] != '"') continue;
                 const end = if (quoted) i + 1 else i;
                 if (hasWord(text[start..end])) {
-                    try finishSpan(stats, voices, tag, samples, spec, feat, pitch_scratch, seg, start, end, quoted, ctx, emit);
+                    try finishSpan(e, learn, stats, voices, tag, samples, spec, feat, pitch_scratch, seg, start, end, quoted, ctx, emit);
                     start = end;
                 }
                 quoted = !quoted;
             }
         }
         if (start < text.len and (hasWord(text[start..]) or start == 0)) {
-            try finishSpan(stats, voices, tag, samples, spec, feat, pitch_scratch, seg, start, text.len, quoted, ctx, emit);
+            try finishSpan(e, learn, stats, voices, tag, samples, spec, feat, pitch_scratch, seg, start, text.len, quoted, ctx, emit);
         }
     }
 
@@ -297,7 +454,7 @@ pub const Engine = struct {
         return false;
     }
 
-    fn finishSpan(stats: *Stats, voices: *voice.Voices, tag: bool, samples: ?[]const f32, spec: *const mel.Mel, feat: []f32, pitch_scratch: []f32, seg_raw: Segment, c0: usize, c1: usize, quoted: bool, ctx: anytype, comptime emit: fn (@TypeOf(ctx), Segment) void) !void {
+    fn finishSpan(engine: *Engine, learn: bool, stats: *Stats, voices: *voice.Voices, tag: bool, samples: ?[]const f32, spec: *const mel.Mel, feat: []f32, pitch_scratch: []f32, seg_raw: Segment, c0: usize, c1: usize, quoted: bool, ctx: anytype, comptime emit: fn (@TypeOf(ctx), Segment) void) !void {
         var seg = seg_raw;
         // the first token's "most likely timestamp" can sit past the real start; never let
         // a span run backwards
@@ -311,6 +468,7 @@ pub const Engine = struct {
         seg.text = seg_in.text[c0..c1];
         seg.quoted = quoted;
         stats.segments += 1;
+        if (learn) engine.learnNames(seg.text) catch {};
         if (tag) {
             var t = clock.Timer.start();
             const s = samples.?;
@@ -369,6 +527,7 @@ pub const Engine = struct {
             const tid0 = seek_delta / 2;
             for (lg[tok.beg .. tok.beg + tid0]) |*v| v.* = -inf;
         }
+        e.applyHotwords(cur);
 
         // log-probs (-inf entries contribute 0 through the vector exp's flush)
         const lp = e.logprobs;

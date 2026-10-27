@@ -7,10 +7,12 @@ const usage =
     \\usage: zwhisper <command> ...
     \\
     \\  info <model>                        hyperparameters and tensor summary
+    \\  tokens <model> <text>...            how the prompt tokenizer splits text
     \\  mel <model> <wav> [out.f32]         log-mel spectrogram stats, optionally dumped [n_mel][n_len]
     \\  logits <model> <wav> <out.f32>      logits after [sot] on the first window (compare with ref)
     \\  bench <threads>                     kernel micro-benchmarks
-    \\  transcribe <model> <wav> [-t N] [--json] [--no-context] [--no-voices] [--profile]
+    \\  transcribe <model> <wav> [-t N] [--json] [--no-context] [--no-voices]
+    \\                                      [--prompt TEXT] [--hotwords a,b,c] [--no-learn] [--profile]
     \\                                      stream segments as text or JSON lines
     \\
 ;
@@ -43,6 +45,17 @@ pub fn main(init: std.process.Init) !void {
         std.process.exit(1);
     };
     defer m.deinit();
+
+    if (std.mem.eql(u8, cmd, "tokens")) {
+        for (args[3..]) |text| {
+            const toks = try zw.tokenizer.encode(gpa, &m, text);
+            defer gpa.free(toks);
+            try out.print("{s} ->", .{text});
+            for (toks) |t| try out.print(" {d}'{s}'", .{ t, m.tokenText(t) });
+            try out.writeAll("\n");
+        }
+        return;
+    }
 
     if (std.mem.eql(u8, cmd, "info")) {
         const hp = m.hp;
@@ -92,6 +105,10 @@ pub fn main(init: std.process.Init) !void {
     var json = false;
     var context = true;
     var voices = true;
+    var learn = true;
+    var prompt_text: ?[]const u8 = null;
+    var hotwords: ?[]const u8 = null;
+    var hotword_bias: ?f32 = null;
     var i: usize = 4;
     while (i < args.len) : (i += 1) {
         if (std.mem.eql(u8, args[i], "-t") and i + 1 < args.len) {
@@ -103,6 +120,17 @@ pub fn main(init: std.process.Init) !void {
             context = false;
         } else if (std.mem.eql(u8, args[i], "--no-voices")) {
             voices = false;
+        } else if (std.mem.eql(u8, args[i], "--no-learn")) {
+            learn = false;
+        } else if (std.mem.eql(u8, args[i], "--prompt") and i + 1 < args.len) {
+            i += 1;
+            prompt_text = args[i];
+        } else if (std.mem.eql(u8, args[i], "--hotwords") and i + 1 < args.len) {
+            i += 1;
+            hotwords = args[i];
+        } else if (std.mem.eql(u8, args[i], "--hotword-bias") and i + 1 < args.len) {
+            i += 1;
+            hotword_bias = try std.fmt.parseFloat(f32, args[i]);
         } else if (std.mem.eql(u8, args[i], "--profile")) {
             zw.ops.profile.enabled = true;
         } else if (std.mem.eql(u8, cmd, "logits") and i == 4) {
@@ -115,6 +143,9 @@ pub fn main(init: std.process.Init) !void {
 
     const engine = try zw.Engine.init(gpa, &m, threads);
     defer engine.deinit();
+    if (prompt_text) |t| try engine.setPrompt(t);
+    if (hotwords) |h| try engine.setHotwords(h);
+    if (hotword_bias) |b| engine.hotword_bias = b;
     const load_ns = timer.lap();
 
     if (std.mem.eql(u8, cmd, "logits")) {
@@ -155,13 +186,19 @@ pub fn main(init: std.process.Init) !void {
             }
         };
         const sink = Sink{ .out = out, .json = json };
-        const stats = try engine.transcribe(&spec, samples, .{ .condition_on_previous = context, .voices = voices }, &sink, Sink.emit);
+        const stats = try engine.transcribe(&spec, samples, .{ .condition_on_previous = context, .voices = voices, .learn_names = learn }, &sink, Sink.emit);
         const total_ns = timer.lap();
         if (zw.ops.profile.enabled) {
             const pr = zw.ops.profile;
             std.debug.print("zwhisper: profile linear {d:.0} ms, attention {d:.0} ms, gelu {d:.0} ms, norm {d:.0} ms\n", .{ ms(pr.linear), ms(pr.attention), ms(pr.gelu), ms(pr.norm) });
         }
         const audio_s = @as(f64, @floatFromInt(samples.len)) / 16000.0;
+        if (engine.hotwords.items.len > 0) {
+            std.debug.print("zwhisper: hotwords:", .{});
+            for (engine.hotwords.items) |h| std.debug.print(" {s}", .{h.text});
+            std.debug.print("\n", .{});
+        }
+        if (stats.dropped > 0) std.debug.print("zwhisper: dropped {d} segment(s) that recited the prompt\n", .{stats.dropped});
         std.debug.print("zwhisper: {d:.1} s audio, {d} windows, {d} tokens, {d} segments, {d} voices; mel {d:.0} ms, load {d:.0} ms, encode {d:.0} ms, decode {d:.0} ms, voices {d:.0} ms, total {d:.0} ms ({d:.1}x realtime, {d} threads)\n", .{
             audio_s, stats.windows, stats.tokens, stats.segments, stats.voices, ms(mel_ns), ms(load_ns), ms(stats.encode_ns), ms(stats.decode_ns), ms(stats.voice_ns), ms(total_ns), audio_s / (@as(f64, @floatFromInt(total_ns)) / 1e9), threads,
         });

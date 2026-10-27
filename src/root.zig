@@ -14,6 +14,7 @@ pub const clock = @import("clock.zig");
 pub const bench = @import("bench.zig");
 pub const gemm = @import("gemm.zig");
 pub const voice = @import("voice.zig");
+pub const tokenizer = @import("tokenizer.zig");
 
 pub const Model = model.Model;
 pub const Engine = transcribe.Engine;
@@ -29,4 +30,5 @@ test {
     _ = transcribe;
     _ = gemm;
     _ = voice;
+    _ = tokenizer;
 }

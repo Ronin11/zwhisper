@@ -1,0 +1,2 @@
+zwhisper: hotwords: Wizard
+zwhisper: 300.0 s audio, 12 windows, 1068 tokens, 74 segments, 0 voices; mel 482 ms, load 165 ms, encode 2665 ms, decode 9293 ms, voices 0 ms, total 11958 ms (25.1x realtime, 7 threads)

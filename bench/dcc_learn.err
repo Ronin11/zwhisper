@@ -1,0 +1,2 @@
+zwhisper: hotwords: You're Mordecai It's Wizard Borent
+zwhisper: 300.0 s audio, 12 windows, 1068 tokens, 74 segments, 0 voices; mel 469 ms, load 124 ms, encode 3200 ms, decode 12007 ms, voices 0 ms, total 15208 ms (19.7x realtime, 7 threads)

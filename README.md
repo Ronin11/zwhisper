@@ -38,6 +38,26 @@ One line per span, as soon as its closing timestamp is decoded:
 - `dist`: how far the span was from the voice it joined, in standard units.
 - `tokens`: the segment's token ids, timestamps included.
 
+## Names and odd words
+
+Three levers, all on by default or one flag away:
+
+- `--hotwords Carl,Donut,"Borant Corporation"`: tokens that continue a listed word get a
+  logit boost while decoding (bias 5, `--hotword-bias`). On five minutes of *Dungeon
+  Crawler Carl* with `base.en` this turns "Borenk" into "Borant" and nudges overall
+  agreement with `small.en` up a little. Cheap and safe; the first lever to reach for.
+- Learned names: a capitalised word seen twice mid-sentence becomes a hotword, so a name
+  the model gets right once stays spelt that way. `--no-learn` turns it off.
+- `--prompt '"Carl," said Princess Donut. Mordecai nodded.'`: the decoder reads this
+  before every window and copies its spelling and style. Write it as a line of the
+  book's own prose, quotes and all: a bare list of names makes the model drop quotation
+  marks. With `small.en` it fixes spellings the hotwords alone miss, at the cost of the
+  model occasionally reciting the prompt over an ambiguous start; segments that are a
+  verbatim run of the prompt are dropped for that reason.
+
+Bigger models help most: `small.en` already gets Borant, Van Damme, Hobbit and Wizard of
+Oz right where `base.en` guesses.
+
 ## How it works
 
 | Stage | File | Notes |
@@ -47,7 +67,8 @@ One line per span, as soon as its closing timestamp is decoded:
 | Kernels | `gemm.zig`, `ops.zig` | 4x4 register-blocked NT GEMM, broadcast-FMA for attention, vector exp/GELU/softmax, f16 weights widened in the kernel, thread pool with futex-sleeping workers |
 | Encoder | `encoder.zig` | conv as im2col+GEMM, 6/6/12 pre-norm blocks, per-head transposed-key attention |
 | Decoder | `decoder.zig` | KV cache, cross K/V projected once per window, logits for the last token only |
-| Decoding | `transcribe.zig` | greedy, whisper.cpp's timestamp rules, previous-window conditioning, streaming emit |
+| Decoding | `transcribe.zig` | greedy, whisper.cpp's timestamp rules, previous-window conditioning, prompt and hotwords, streaming emit |
+| Prompts | `tokenizer.zig` | whisper.cpp's greedy longest-match tokenizer for prompts and hotwords |
 | Voices | `voice.zig` | pitch by autocorrelation, 16-band spectral envelope, online clustering |
 
 Encoder weights are stored as f16 (what the files hold) and widened to f32 inside the
