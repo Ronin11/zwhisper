@@ -1,0 +1,4083 @@
+{
+ "w000": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Bridget and narrator share a quiet tea moment after a successful meeting."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Narrator reflects on colony ship progress while reviewing reports."
+  },
+  {
+   "start": 220,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Charles explains resource scarcity and construction challenges to narrator."
+  },
+  {
+   "start": 262,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Discussion about building colony ships at other stars and resource limitations."
+  }
+ ],
+ "w001": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Characters discuss containment of resistance and council members."
+  },
+  {
+   "start": 112,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Discovery of a prototype reactor and its potential."
+  },
+  {
+   "start": 155,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Discussion about salvaging cargo vessels and their potential use."
+  },
+  {
+   "start": 224,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Relaxed conversation with Neil about finishing projects and taking a break."
+  }
+ ],
+ "w002": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Bridget's wedding attire and apartment"
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Bridget and her daughter Leanne reunite"
+  },
+  {
+   "start": 180,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Bridget's emotional conversation about her daughter Rosie"
+  },
+  {
+   "start": 210,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Military briefing on counter-offensive strategy"
+  }
+ ],
+ "w003": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Introduction to timeline exercise"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Transition to Part 2: Getting over it"
+  },
+  {
+   "start": 132,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Listing things to get over: bad suggestions, fears"
+  },
+  {
+   "start": 205,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Discussing bad memories and trauma"
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Moving toward resolution and new beginnings"
+  }
+ ],
+ "w004": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Introduction to decision-making and neurology reprogramming"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Exploring habits and compulsions"
+  },
+  {
+   "start": 292,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Dialogue about uncertainty"
+  }
+ ],
+ "w005": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Character reflects on personal growth and desire for change."
+  },
+  {
+   "start": 151,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Character learns to shift focus from self to others to alleviate anxiety."
+  },
+  {
+   "start": 205,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Character practices social skills to build confidence and connection."
+  },
+  {
+   "start": 274,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Character reflects on loneliness and the importance of connection."
+  }
+ ],
+ "w006": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Observing penguins on a beach"
+  },
+  {
+   "start": 106,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Seal colony interaction and baby rescue"
+  },
+  {
+   "start": 191,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Reflecting on Finn's connection with seals"
+  },
+  {
+   "start": 241,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "Reuniting with Finn after injury"
+  }
+ ],
+ "w007": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Reflecting on childhood trauma and family bonds"
+  },
+  {
+   "start": 121,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Intimate conversation about the wind's message"
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Breakfast conversation about Tasmania"
+  },
+  {
+   "start": 265,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Rowan's sudden departure and tension"
+  }
+ ],
+ "w008": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Fen reflects on her life and Hank's hidden truths."
+  },
+  {
+   "start": 122,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Fen is pushed underwater by Hank, but remains calm."
+  },
+  {
+   "start": 206,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Fen watches as Hank is taken away, waiting for safety."
+  },
+  {
+   "start": 294,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Fen's father arrives, and she remains in shock."
+  }
+ ],
+ "w009": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "A grim journey through a war-torn landscape"
+  },
+  {
+   "start": 128,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "A moment of reflection and personal revelation"
+  },
+  {
+   "start": 212,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "A tense encounter with a follower"
+  }
+ ],
+ "w010": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 3,
+   "why": "A debate over titles and lineage"
+  },
+  {
+   "start": 101,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "A tense confrontation in a tent"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "A conversation about military loyalty"
+  },
+  {
+   "start": 180,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "A revelation about the political situation"
+  },
+  {
+   "start": 222,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "A discussion on desertion and morale"
+  },
+  {
+   "start": 241,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "A reflection on the army's composition"
+  },
+  {
+   "start": 265,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 4,
+   "why": "A realization of the army's weakened state"
+  }
+ ],
+ "w011": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Two characters discuss a bounty and a plan to intercept a group."
+  },
+  {
+   "start": 102,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Yennefer and Triss have a tense interaction at a gathering."
+  },
+  {
+   "start": 181,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Yennefer is alone at a food table, eating oysters."
+  },
+  {
+   "start": 195,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Gilla Vigo approaches Yennefer, noticing her tension."
+  }
+ ],
+ "w012": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Family reacts to stone walkers signaling raiders"
+  },
+  {
+   "start": 121,
+   "music": "silence",
+   "mood": "",
+   "intensity": 4,
+   "why": "Shalon activates span-read strap and confronts Merese and Diatl"
+  },
+  {
+   "start": 214,
+   "music": "silence",
+   "mood": "",
+   "intensity": 4,
+   "why": "Shalon reveals her identity as the light weaver"
+  },
+  {
+   "start": 252,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Shalon deflects Merese's shot and contemplates anti-light"
+  },
+  {
+   "start": 281,
+   "music": "silence",
+   "mood": "",
+   "intensity": 4,
+   "why": "Ghost Bloods coordinate to subdue the Sons of Honor"
+  }
+ ],
+ "w013": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Sigsel moves through stormy terrain toward army"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Sigsel and a companion discuss Earth-gate and enemy strategy"
+  },
+  {
+   "start": 142,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Sigsel observes enemy forces and spots Moash"
+  },
+  {
+   "start": 200,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Description of a poster warning about fused beings"
+  },
+  {
+   "start": 281,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Seth waits for decision about his fate"
+  }
+ ],
+ "w014": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A peaceful moment of creation with a companion"
+  },
+  {
+   "start": 10,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Conflict arises over how to handle a threat"
+  },
+  {
+   "start": 20,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "A tense conversation about a dangerous plan"
+  },
+  {
+   "start": 30,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A moment of reflection and seeking help"
+  }
+ ],
+ "w015": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "A man and Fleischer have a conversation about LGBTQ community"
+  },
+  {
+   "start": 43,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Introduction to Chapter 3: Socks and Crocs"
+  },
+  {
+   "start": 45,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "The narrator at a restaurant with scientists discussing Crocs and color perception"
+  },
+  {
+   "start": 195,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "The narrator reflects on the 'dress' phenomenon and the nature of minds"
+  },
+  {
+   "start": 268,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 1,
+   "why": "The narrator discusses the scientific challenges of understanding mind change"
+  }
+ ],
+ "w016": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Meghan reflects on her growing trust in her own judgment over the Church's teachings."
+  },
+  {
+   "start": 125,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Grace turns herself in to the elders after reaching out to Grace over Twitter."
+  },
+  {
+   "start": 190,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Meghan and Grace discuss leaving their community in a quiet moment."
+  },
+  {
+   "start": 270,
+   "music": "song",
+   "mood": "",
+   "intensity": 3,
+   "why": "Meghan and Grace prepare to leave their community, but their parents confront them after a betrayal."
+  }
+ ],
+ "w017": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Introduction to the concept of brain similarities in conversations"
+  },
+  {
+   "start": 104,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Karen Tamarius explains her 'Change Conversation Pyramid' method"
+  },
+  {
+   "start": 206,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Discussion about applying the method to vaccination conversations"
+  }
+ ],
+ "w018": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Character reflects on trying to make money as a motivational speaker while handling groceries."
+  },
+  {
+   "start": 184,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Character admits not following the formula, especially avoiding social media for business."
+  },
+  {
+   "start": 267,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Character reveals the two-year delay in posting business content due to fear of judgment."
+  }
+ ],
+ "w019": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Opening reflection on loneliness and friendship"
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Introduction of the Let them Theory"
+  },
+  {
+   "start": 202,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Comparison of childhood vs adult friendship"
+  },
+  {
+   "start": 295,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Transition to 'the great scattering'"
+  }
+ ],
+ "w020": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A caring guide offers practical ways to support loved ones through simple, thoughtful gestures."
+  },
+  {
+   "start": 105,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "A reflective moment on the importance of believing in others' ability to heal."
+  },
+  {
+   "start": 179,
+   "music": "score",
+   "mood": "epic brass and drums, big, triumphant",
+   "intensity": 3,
+   "why": "A powerful conclusion emphasizing the role of support in fostering healing and independence."
+  }
+ ],
+ "w021": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Arranged marriages and cooperation between tribes"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Building alliances and the threat of Set"
+  },
+  {
+   "start": 187,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Planning defense strategies with Kral"
+  }
+ ],
+ "w022": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "A character falls unconscious, others are bound and observed by humanoids."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "The group walks toward the castle, reflecting on their situation."
+  },
+  {
+   "start": 224,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 3,
+   "why": "The group treks through rain and mud, arriving at the castle."
+  },
+  {
+   "start": 276,
+   "music": "score",
+   "mood": "epic brass and drums, big, triumphant",
+   "intensity": 4,
+   "why": "The group approaches the castle gate."
+  }
+ ],
+ "w023": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A peaceful forest scene after a catastrophe"
+  },
+  {
+   "start": 152,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Orion confronts Set's voice in his mind"
+  },
+  {
+   "start": 217,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Orion awakens in a new paradise"
+  },
+  {
+   "start": 268,
+   "music": "score",
+   "mood": "rhythmic marching drums, determined",
+   "intensity": 3,
+   "why": "Orion resolves to hunt Set"
+  }
+ ],
+ "w024": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Dana and Rabb discuss the Guild's failure to maintain peace"
+  },
+  {
+   "start": 235,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Dana reveals a pension scheme for a dead person"
+  },
+  {
+   "start": 247,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "The narrator reflects on their plan to replace the Guild"
+  }
+ ],
+ "w025": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "A tense medical crisis unfolds as B tends to Tarena's life-threatening condition."
+  },
+  {
+   "start": 108,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "A moment of relief as Tarena stabilizes, followed by light banter among the crew."
+  },
+  {
+   "start": 210,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "The crew discusses food and plans to eat, shifting to a more relaxed atmosphere."
+  },
+  {
+   "start": 245,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "The protagonist spends quiet time with his children, reflecting on family and life."
+  }
+ ],
+ "w026": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Negotiation with a powerful figure over evidence and protection"
+  },
+  {
+   "start": 303,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Interrogation of prisoners with mind-controlled responses"
+  }
+ ],
+ "w027": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Uncle advises Miguel on career strategy"
+  },
+  {
+   "start": 59,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Miguel reflects on his job"
+  },
+  {
+   "start": 155,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "VIPs arrive at the landing platform"
+  },
+  {
+   "start": 225,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Miguel observes the VIPs' arrival"
+  }
+ ],
+ "w028": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 3,
+   "why": "Jason and friends discuss casualties after a battle"
+  },
+  {
+   "start": 14,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Jason explains the astral king's calm demeanor"
+  },
+  {
+   "start": 22,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 4,
+   "why": "Jason casts a spell to harvest life force from corpses"
+  },
+  {
+   "start": 32,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Jason's friends discuss the broken weapon"
+  }
+ ],
+ "w029": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "A couple on a ship deck at night, reminiscing"
+  },
+  {
+   "start": 150,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Flashback to hair color change request"
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Princess Zara's return and political discussion"
+  }
+ ],
+ "w030": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Kelsear and Yeden discuss plans for dealing with Lord Ruhler and the Ministry."
+  },
+  {
+   "start": 158,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Marsh unexpectedly enters the room, confronting Kelsear."
+  },
+  {
+   "start": 225,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Marsh and Kelsear have a private conversation about past actions and the Ska Rebellion."
+  },
+  {
+   "start": 296,
+   "music": "silence",
+   "mood": "",
+   "intensity": 4,
+   "why": "Marsh reveals Kelsear's past violence, leading to Kelsear discarding the list."
+  }
+ ],
+ "w031": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Conversing about rumors and strategy"
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Vin's evening at the ball"
+  },
+  {
+   "start": 233,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Discussing Lord Venture's interactions"
+  },
+  {
+   "start": 272,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Vin seeking Kelseyer privately"
+  }
+ ],
+ "w032": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Vin and Cezid tend to wounds after a fight"
+  },
+  {
+   "start": 242,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "Vin defends her decision to fight for Ellen"
+  },
+  {
+   "start": 264,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Vin confronts Calseir about his lack of understanding"
+  }
+ ],
+ "w033": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Connor and Rob in a tense, playful moment"
+  },
+  {
+   "start": 105,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Connor discovers Rob trapped in sand"
+  },
+  {
+   "start": 167,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Connor helps Rob free himself"
+  },
+  {
+   "start": 292,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Connor and Rob celebrate after freeing Rob"
+  }
+ ],
+ "w034": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Marco and Vic discuss a missing person and potential threats."
+  },
+  {
+   "start": 122,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Palmer and hap are stranded in the desert after a crash."
+  }
+ ],
+ "w035": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Connor chases his sister through a home, heart pounding, as he recalls the Sarfers on the sand."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Vic and Palmer discuss the rescue mission, with Vic giving orders and Connor getting suited up."
+  },
+  {
+   "start": 195,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 4,
+   "why": "Connor and Vic dive into the sand to rescue survivors, focusing on finding pockets of air."
+  },
+  {
+   "start": 284,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 3,
+   "why": "Connor rescues a family of four, finding hope amidst the devastation."
+  }
+ ],
+ "w036": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Ben and Alexander confront a news dealer about a uniform."
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Ben and Alexander calm the news dealer after a confrontation."
+  },
+  {
+   "start": 225,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "The news dealer explains the situation on the station."
+  },
+  {
+   "start": 274,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 3,
+   "why": "The news dealer warns about Ferris's surveillance."
+  }
+ ],
+ "w037": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Characters prepare for a storm while arguing about ship controls."
+  },
+  {
+   "start": 125,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 3,
+   "why": "Alexander rushes to the radio room to check communications."
+  },
+  {
+   "start": 183,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 3,
+   "why": "Alexander returns to the bridge and discusses strategy with the crew."
+  },
+  {
+   "start": 225,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "The ship is surrounded by interceptors, and the crew prepares for a tactical maneuver."
+  }
+ ],
+ "w038": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Tense confrontation on a ship"
+  },
+  {
+   "start": 154,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Mysterious offer of information"
+  },
+  {
+   "start": 258,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Skepticism and negotiation"
+  },
+  {
+   "start": 294,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Decision to accept the offer"
+  }
+ ],
+ "w039": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 3,
+   "why": "Ellis explains a task involving channeling Chi into a network."
+  },
+  {
+   "start": 120,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Maria and the narrator discuss the implications of the task."
+  },
+  {
+   "start": 188,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "The group arrives on the boat, and tension with Ellis escalates."
+  },
+  {
+   "start": 215,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "The narrator and Maria arrive on Bob's deck, confronting Ellis and others."
+  }
+ ],
+ "w040": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Eustace kicks a man in the groin, then reflects on the incident."
+  },
+  {
+   "start": 24,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Eustace walks away, noticing the men's reactions to the kicked man."
+  },
+  {
+   "start": 53,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Eustace notices a woman working nearby, who seems to enjoy the incident."
+  },
+  {
+   "start": 113,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Eustace confronts the woman, who is working with a chisel."
+  },
+  {
+   "start": 156,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "The woman, Fern, reacts to Eustace's loud tone, then they discuss her work."
+  },
+  {
+   "start": 228,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Eustace and Fern discuss the expedition and the lottery system."
+  }
+ ],
+ "w041": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Rocky's art burns, causing panic"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "The narrator assesses the battlefield"
+  },
+  {
+   "start": 207,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Friends support the narrator"
+  },
+  {
+   "start": 241,
+   "music": "score",
+   "mood": "epic brass and drums, big, triumphant",
+   "intensity": 4,
+   "why": "The narrator surrenders power to friends"
+  }
+ ],
+ "w042": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Professional interaction about workplace policy"
+  },
+  {
+   "start": 151,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Career setback and personal reflection"
+  },
+  {
+   "start": 257,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Decision to pursue cartooning and affirmations"
+  },
+  {
+   "start": 300,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Reflection on success and systems"
+  }
+ ],
+ "w043": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Narrator reflects on car buying decision as irrational"
+  },
+  {
+   "start": 214,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Example of irrational decision in The Bachelorette"
+  },
+  {
+   "start": 274,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Apple vs Dell business models based on irrationality"
+  },
+  {
+   "start": 298,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Financial meltdown due to irrational optimism"
+  }
+ ],
+ "w044": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Narrator discusses cheese as part of diet approach"
+  },
+  {
+   "start": 123,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Explaining reprogramming food preferences without willpower"
+  },
+  {
+   "start": 180,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 2,
+   "why": "Comparing diet approach to Scientology's 'dionetics'"
+  },
+  {
+   "start": 257,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Discussing food as fuel for exercise"
+  }
+ ],
+ "w045": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "A character apologizes for breaking a device."
+  },
+  {
+   "start": 122,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "The character explains the prototype's limitations."
+  },
+  {
+   "start": 155,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 1,
+   "why": "A character scolds another for using third-person speech."
+  },
+  {
+   "start": 221,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "A character expresses frustration about not getting something."
+  }
+ ],
+ "w046": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Princess Donut and Starward exchange dialogue about a media platform."
+  },
+  {
+   "start": 105,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Donut proposes forming a media platform called Princess TV."
+  },
+  {
+   "start": 150,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "The narrator realizes the blood-sultanate's drama show reveals their military status."
+  },
+  {
+   "start": 224,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "The narrator laughs at the realization of the blood-sultanate's defeat."
+  },
+  {
+   "start": 254,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 2,
+   "why": "Donut confronts Vignata about the drama show."
+  },
+  {
+   "start": 272,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Donut and the narrator discuss their escape plan."
+  }
+ ],
+ "w047": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "A city under attack by towers firing weapons."
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "A character prepares a defensive strategy."
+  },
+  {
+   "start": 178,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 3,
+   "why": "A god-like figure appears in the city."
+  },
+  {
+   "start": 234,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "A character realizes the urgency of the situation."
+  }
+ ],
+ "w048": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "G.K.U. assigns ranks and explains training requirements to initiates."
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Initiates discuss the upcoming mission and their roles."
+  },
+  {
+   "start": 258,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Alexander and Bann reflect on the initiates' readiness and training curriculum."
+  }
+ ],
+ "w049": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Reflection on past wrongs and guilt"
+  },
+  {
+   "start": 15,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Confrontation and anger"
+  },
+  {
+   "start": 47,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 3,
+   "why": "Decision to seek justice"
+  },
+  {
+   "start": 134,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Alexander and Aisling in the engine room"
+  },
+  {
+   "start": 211,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "B-suit demonstration"
+  }
+ ],
+ "w050": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Alexander and team discuss detention risks and deactivate radios."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Ship departs, AI confirms spoofing facility systems."
+  },
+  {
+   "start": 200,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Team debates strategy after escaping facility."
+  },
+  {
+   "start": 250,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "Zara insists on physical server access for maximum impact."
+  }
+ ],
+ "w051": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Belinda and Jason's banter about her aggressive nature"
+  },
+  {
+   "start": 44,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Belinda assesses the battlefield and formulates a theory"
+  },
+  {
+   "start": 209,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "The group discusses the purity church's motives"
+  },
+  {
+   "start": 267,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 3,
+   "why": "The group decides to secure the clockwork kings before purity takes them"
+  }
+ ],
+ "w052": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Jason and Sophie discuss a converted entity's senses."
+  },
+  {
+   "start": 104,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Jason comforts Humphrey after a tense discussion."
+  },
+  {
+   "start": 183,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Amos navigates the facility, leaving a trail for others."
+  }
+ ],
+ "w053": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Jason and Dawn discuss Shaco's condition and the builder's dual nature."
+  },
+  {
+   "start": 24,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Shaco remains catatonic as Jason and Dawn reflect on the builder's instability."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Jason and Dawn debate the nature of transcendence and secrecy."
+  },
+  {
+   "start": 158,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Jason jokes about the builder's mental state while cleaning up."
+  },
+  {
+   "start": 217,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Shade cleans up the broken plate as Jason and Dawn discuss the situation."
+  },
+  {
+   "start": 252,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 2,
+   "why": "Carmen appears as a representative of the sun-ded throne."
+  }
+ ],
+ "w054": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A traveler meets Helen in Troy, discussing his arrival and her views on Troy vs. Sparta."
+  },
+  {
+   "start": 64,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Helen explains her reasons for staying in Troy, contrasting it with Sparta's treatment of women."
+  },
+  {
+   "start": 120,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Helen reveals her preference for Alexandros over Menelius, emphasizing Troy's civilization."
+  },
+  {
+   "start": 209,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Helen discusses the future of Troy and her role as queen, hinting at Hector's fate."
+  },
+  {
+   "start": 272,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Helen challenges Ryan to tell Menelius she will not return unless he wins her in battle."
+  }
+ ],
+ "w055": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 3,
+   "why": "Helen and Luca discuss Artemis and the gods' role in the Trojan War"
+  },
+  {
+   "start": 100,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "The group arrives at an inn in Ephesus, a city of marble temples and inns"
+  },
+  {
+   "start": 150,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Lucas leaves to explore the city while the narrator and Politis guard the goods"
+  },
+  {
+   "start": 200,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Helen enjoys a bath with the innkeeper's daughters, while the narrator describes the city to Politis"
+  },
+  {
+   "start": 250,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Politis wants to tell the story of Troy, but the narrator refuses"
+  }
+ ],
+ "w056": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "A playful, intimate exchange between two characters."
+  },
+  {
+   "start": 22,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "A tense journey through confusing corridors."
+  },
+  {
+   "start": 46,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 2,
+   "why": "A quiet, unsettling dinner setting."
+  },
+  {
+   "start": 131,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 2,
+   "why": "A formal, tense greeting with the chief priest."
+  },
+  {
+   "start": 194,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "A false entrance of the king, replaced by priests and guards."
+  },
+  {
+   "start": 236,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "The king's arrival and unsettling presence."
+  }
+ ],
+ "w057": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Opening quote and setting"
+  },
+  {
+   "start": 102,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Charney's introduction and conversation"
+  },
+  {
+   "start": 142,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Charney's transformation and results"
+  },
+  {
+   "start": 208,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Oprah's advice on time management"
+  }
+ ],
+ "w058": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Introduction to negotiation tactics and budgeting"
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Discussion of sales templates and website creation tools"
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Comparison of website platforms and e-commerce solutions"
+  }
+ ],
+ "w059": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Introduction to avoiding work traps"
+  },
+  {
+   "start": 124,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Introduction of auto-responder example"
+  },
+  {
+   "start": 158,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Discussion of 80/20 analysis"
+  },
+  {
+   "start": 224,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Focus on life outside work"
+  },
+  {
+   "start": 277,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 1,
+   "why": "Taking breaks and prioritizing"
+  },
+  {
+   "start": 297,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Importance of social connections"
+  }
+ ],
+ "w060": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "A bar scene with casual interactions and champagne opening"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Champagne bottle mishap and confrontation"
+  },
+  {
+   "start": 190,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Aftermath of the incident and self-reflection"
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Changing appearance and entering a noisy party"
+  }
+ ],
+ "w061": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Character reflecting on illness and medication"
+  },
+  {
+   "start": 108,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Doctor's appointment and follow-up"
+  },
+  {
+   "start": 137,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Character watching news about hijacking"
+  }
+ ],
+ "w062": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Protagonist finds a dart in library, feels dizzy"
+  },
+  {
+   "start": 137,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "Protagonist calls Millie via homeless woman"
+  },
+  {
+   "start": 234,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "Protagonist jumps to Larnica to investigate hijacking"
+  },
+  {
+   "start": 297,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 4,
+   "why": "Protagonist jumps to plane wing to observe hijacker"
+  }
+ ],
+ "w063": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Arriving at a dive bar and discussing travel experiences"
+  },
+  {
+   "start": 150,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Mordecai working on alchemy table while Katya and narrator eat"
+  },
+  {
+   "start": 205,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Mordecai presenting potions and discussing their effects"
+  }
+ ],
+ "w064": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Character reflects on workplace confusion"
+  },
+  {
+   "start": 227,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Madison reveals her role and station details"
+  },
+  {
+   "start": 257,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Madison describes the station disaster"
+  },
+  {
+   "start": 290,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Madison explains the Cravyard bosses"
+  }
+ ],
+ "w065": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Characters discuss portal strategy and hat inventory"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Cart enters new portal, success with crowd"
+  },
+  {
+   "start": 218,
+   "music": "score",
+   "mood": "epic brass and drums, big, triumphant",
+   "intensity": 3,
+   "why": "Crowd applauds and honors Donut with hats"
+  }
+ ],
+ "w066": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Characters discuss past family issues in a quiet room."
+  },
+  {
+   "start": 135,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Donut and Zev discuss a TV special about their lives."
+  },
+  {
+   "start": 254,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Author's note about writing a book for the galaxy."
+  }
+ ],
+ "w067": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 3,
+   "why": "Characters discuss a deal for dungeon living and the fate of dancers."
+  },
+  {
+   "start": 120,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Damascus pleads for the dancers' safety and reveals family ties."
+  },
+  {
+   "start": 200,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Damascus reveals his parents' identities and the dancers' situation."
+  },
+  {
+   "start": 276,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Damascus introduces Rosemary to approve the hire of the dancers."
+  }
+ ],
+ "w068": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Characters affirming team membership and discussing teleportation"
+  },
+  {
+   "start": 122,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Exploring a room with glowy stairs and attempting to set traps"
+  },
+  {
+   "start": 235,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Reflecting on past events and planning for future encounters"
+  },
+  {
+   "start": 269,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Character reflecting on a past injury and checking an automaton"
+  }
+ ],
+ "w069": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Introducing Team One Fine Pig members on a hilltop"
+  },
+  {
+   "start": 123,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Explaining Nico's thruple relationship with Penelope"
+  },
+  {
+   "start": 197,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Penelope's backstory and magical protection"
+  },
+  {
+   "start": 268,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 2,
+   "why": "Team One Fine Pig's departure from the truck"
+  }
+ ],
+ "w070": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Samantha gives relationship advice about Cha-chi"
+  },
+  {
+   "start": 126,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Narrator realizes Cha-chi's true nature"
+  },
+  {
+   "start": 154,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Setting description of cul-de-sac and team houses"
+  },
+  {
+   "start": 213,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Characters discussing Chocci's nature"
+  }
+ ],
+ "w071": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Characters discuss a 'dirty tea bag' and a 'nothing spot' on a roulette wheel."
+  },
+  {
+   "start": 117,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Mitch reveals Pontiff jumped into the 'nothing spot' for a thousand gold."
+  },
+  {
+   "start": 154,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Characters negotiate a deal with Mitch to use the 'nothing spot' for their friends."
+  },
+  {
+   "start": 209,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 3,
+   "why": "Characters debate the trap behind the 'nothing spot' and Pontiff's disappearance."
+  }
+ ],
+ "w072": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Character reflects on suppressing emotions after a space attack"
+  },
+  {
+   "start": 64,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Character's solitude interrupted by Terina and Perry"
+  },
+  {
+   "start": 93,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Terina and Perry reveal intel about an upcoming attack"
+  },
+  {
+   "start": 276,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Character calmly processes new information"
+  }
+ ],
+ "w073": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Lunola instructs Gilligan to continue his work."
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Lunola explains the conicoo aging process and the need to 'recall'."
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 1,
+   "why": "Lunola discusses his arrangement with Matterforge for his eventual death."
+  }
+ ],
+ "w074": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "A strategic discussion about deploying buoys in space."
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "A sudden alert interrupts a routine mission as a swarm of contacts is detected."
+  },
+  {
+   "start": 184,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "A tense debate about the nature of the incoming contacts."
+  },
+  {
+   "start": 254,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 4,
+   "why": "A tactical assessment of the incoming missile threat."
+  }
+ ],
+ "w075": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "B's thoughts echo in her mind as she processes profound truths."
+  },
+  {
+   "start": 102,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "B wakes up, finds herself free from restraints, and examines her healing leg."
+  },
+  {
+   "start": 208,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "B hears strange screams from the castle, realizing void might be hunting."
+  }
+ ],
+ "w076": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Beatrice cautiously enters a mausoleum"
+  },
+  {
+   "start": 144,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Beatrice panics after hearing strange sounds"
+  },
+  {
+   "start": 204,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "The coffin lid begins to shift"
+  }
+ ],
+ "w077": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Character reflects on cleaning the castle and hopes for human return."
+  },
+  {
+   "start": 123,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Tony interrupts Beatrice's story, causing tension."
+  },
+  {
+   "start": 243,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Tony questions Beatrice about her class and void."
+  },
+  {
+   "start": 283,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Tony laughs, easing tension, and reveals his age."
+  }
+ ],
+ "w078": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Jason wakes up disoriented after an attack, assessing his situation."
+  },
+  {
+   "start": 63,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Jason interacts with a stoic guard, exchanging banter while assessing his captor."
+  },
+  {
+   "start": 159,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Jason meets a young, arrogant boss and a creepy elf, preparing for confrontation."
+  }
+ ],
+ "w079": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Jason muses about a training montage."
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "Jason explains the concept of 'everything is a weapon'."
+  },
+  {
+   "start": 242,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "The team reacts to Jason's speech."
+  },
+  {
+   "start": 259,
+   "music": "score",
+   "mood": "rhythmic marching drums, determined",
+   "intensity": 2,
+   "why": "The team begins a regimented schedule of training."
+  }
+ ],
+ "w080": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Jason and Clive discuss heroism and the need for secrecy."
+  },
+  {
+   "start": 135,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Team discusses the sabotage plan and the builder's likely response."
+  },
+  {
+   "start": 204,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Jason prepares to execute the sabotage, feeling self-conscious."
+  },
+  {
+   "start": 230,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Jason performs the sabotage, noticing the runes' behavior."
+  }
+ ],
+ "w081": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Characters interact with a dog and plan their next moves."
+  },
+  {
+   "start": 147,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Characters walk through the forest, enjoying the scenery."
+  },
+  {
+   "start": 226,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Characters arrive at a clearing filled with bees, meeting a character named Lemon."
+  }
+ ],
+ "w082": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Rocky reflects on his flight with Fisher's strength"
+  },
+  {
+   "start": 6,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's anger at Fisher's touch"
+  },
+  {
+   "start": 13,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Rocky's vision of different land masses"
+  },
+  {
+   "start": 23,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's anger returns at Fisher's fault"
+  },
+  {
+   "start": 36,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's memory of Fisher's touch"
+  },
+  {
+   "start": 48,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Rocky's melancholy over his mistress"
+  },
+  {
+   "start": 59,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Rocky's despair over losing his mistress"
+  },
+  {
+   "start": 72,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Rocky's determination to find a solution"
+  },
+  {
+   "start": 80,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's circular thoughts"
+  },
+  {
+   "start": 86,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Rocky's devious plan for vengeance"
+  },
+  {
+   "start": 91,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Rocky's focus on his goals"
+  },
+  {
+   "start": 97,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Rocky's decision to seek more power"
+  },
+  {
+   "start": 103,
+   "music": "score",
+   "mood": "rhythmic marching drums, determined",
+   "intensity": 2,
+   "why": "Rocky's determination to reach Tropica"
+  },
+  {
+   "start": 116,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Rocky spots an island"
+  },
+  {
+   "start": 123,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's rude gesture at the island"
+  },
+  {
+   "start": 130,
+   "music": "score",
+   "mood": "rhythmic marching drums, determined",
+   "intensity": 2,
+   "why": "Rocky's determination to reach the mountain"
+  },
+  {
+   "start": 136,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Rocky's focus on the mountain peak"
+  },
+  {
+   "start": 143,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Rocky's realization of the mountain's nature"
+  },
+  {
+   "start": 150,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's anger at the island"
+  },
+  {
+   "start": 155,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Rocky's focus on the mountain peak"
+  },
+  {
+   "start": 161,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Rocky's discovery of the volcanic pit"
+  },
+  {
+   "start": 168,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's realization of the heat"
+  },
+  {
+   "start": 173,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Rocky's observation of the magma"
+  },
+  {
+   "start": 179,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's test of the magma with a boulder"
+  },
+  {
+   "start": 184,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Rocky's shock at the magma's reaction"
+  },
+  {
+   "start": 194,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Rocky's realization of the magma's nature"
+  },
+  {
+   "start": 201,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's anticipation of the magma's reaction"
+  },
+  {
+   "start": 208,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's awe at the volcanic eruption"
+  },
+  {
+   "start": 214,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's confirmation of the magma's nature"
+  },
+  {
+   "start": 220,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's realization of the magma's power"
+  },
+  {
+   "start": 225,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's test of the magma with a boulder"
+  },
+  {
+   "start": 232,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's anticipation of the boulder's impact"
+  },
+  {
+   "start": 238,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Rocky's shock at the boulder passing through"
+  },
+  {
+   "start": 243,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Rocky's realization of the magma's nature"
+  },
+  {
+   "start": 249,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's anticipation of the magma's reaction"
+  },
+  {
+   "start": 255,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Rocky's relief at no reaction"
+  },
+  {
+   "start": 258,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Rocky's anger at himself and Fisher"
+  },
+  {
+   "start": 264,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's realization of the volcanic eruption"
+  },
+  {
+   "start": 270,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's awe at the volcanic eruption"
+  },
+  {
+   "start": 276,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's confirmation of the magma's power"
+  },
+  {
+   "start": 282,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's realization of the magma's energy"
+  },
+  {
+   "start": 289,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's connection to the magma's energy"
+  },
+  {
+   "start": 295,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 4,
+   "why": "Rocky's understanding of the magma's nature"
+  }
+ ],
+ "w083": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Character returns to forest floor after a journey, finds a loyal companion."
+  },
+  {
+   "start": 60,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Character reflects on a companion's loyalty and plans to inform others."
+  },
+  {
+   "start": 122,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Solomon experiences pain and ascension, hides from danger."
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 4,
+   "why": "Solomon hides from a cultivator and spirit beast, fearing for his life."
+  }
+ ],
+ "w084": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Neil reflects on his trip while focusing on teammates"
+  },
+  {
+   "start": 136,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Neil and Andrew discuss fear and Neil's father's name"
+  },
+  {
+   "start": 202,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Neil joins Nicky and the team for coffee"
+  },
+  {
+   "start": 261,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Andrew fidgets during safety demonstration"
+  }
+ ],
+ "w085": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Neil wakes up to a phone alert, realizing Kengo Moriyama is hospitalized."
+  },
+  {
+   "start": 126,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Neil reflects on Kengo's hospitalization and his relationship with Nathan."
+  },
+  {
+   "start": 159,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Neil and Andrew discuss Neil's need to stand on his own."
+  }
+ ],
+ "w086": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Neil listens to a tense team meeting"
+  },
+  {
+   "start": 147,
+   "music": "silence",
+   "mood": "",
+   "intensity": 4,
+   "why": "YMac reveals he has a son"
+  },
+  {
+   "start": 200,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Whittier and YMac discuss the revelation"
+  },
+  {
+   "start": 237,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Neil rides with YMac after the meeting"
+  },
+  {
+   "start": 253,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Neil avoids questions about his injuries"
+  }
+ ],
+ "w087": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Alexander gets lost in a maze-like industrial area"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Alexander meets Vins and discusses the station's issues"
+  },
+  {
+   "start": 242,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Vins helps Alexander with his injury"
+  }
+ ],
+ "w088": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Characters introduce themselves and set up conflict."
+  },
+  {
+   "start": 13,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Tension rises as characters argue about violence and history."
+  },
+  {
+   "start": 61,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Pullicure reveals past conflicts and justifies actions."
+  },
+  {
+   "start": 122,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Alexander questions the pullicure's motives and history."
+  },
+  {
+   "start": 150,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Pullicure explains their need for freedom and truth."
+  },
+  {
+   "start": 177,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Alexander realizes the pullicure's knowledge of their situation."
+  },
+  {
+   "start": 252,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Pullicure reveals their true goal: freeing the trol."
+  },
+  {
+   "start": 289,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "Conflict escalates as Alexander counters the pullicure's claims."
+  }
+ ],
+ "w089": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Leaders discuss summit preparations and G.K.U. credibility."
+  },
+  {
+   "start": 105,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Leaders discover data leaks and encryption patterns."
+  },
+  {
+   "start": 214,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Leaders realize infiltration is deeper than expected."
+  },
+  {
+   "start": 278,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Leaders discuss data broker and Eridani involvement."
+  }
+ ],
+ "w090": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Introduction to decision-making based on feelings rather than logic"
+  },
+  {
+   "start": 108,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Explaining the concept of imagining future scenarios"
+  },
+  {
+   "start": 206,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Transition to using 'just imagine' to create mental pictures"
+  },
+  {
+   "start": 284,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 1,
+   "why": "Introducing the final phrase 'When would be a good time?'"
+  }
+ ],
+ "w091": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Introduction to the concept of social proof and influence through group behavior."
+  },
+  {
+   "start": 123,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Transition to discussing the 'good news' technique for reframing negativity."
+  },
+  {
+   "start": 242,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Application of 'good news' and 'that's great' techniques to handle excuses and resistance."
+  }
+ ],
+ "w092": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Introduction to the concept of using 'thank you' as a cue for further requests."
+  },
+  {
+   "start": 10,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Explaining the technique of asking for a small favor after a customer says 'thank you'."
+  },
+  {
+   "start": 28,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Continuing the explanation of the technique with a challenge to the prospect."
+  },
+  {
+   "start": 45,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "Discussing the subtle compliment and narrowing down options for prospects."
+  },
+  {
+   "start": 55,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Transitioning to the next step after the prospect names someone."
+  },
+  {
+   "start": 94,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Asking for a further favor after the initial agreement."
+  },
+  {
+   "start": 111,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Following up with a call to check on the introduction."
+  },
+  {
+   "start": 136,
+   "music": "score",
+   "mood": "epic brass and drums, big, triumphant",
+   "intensity": 2,
+   "why": "Reflecting on the effectiveness of the technique."
+  },
+  {
+   "start": 163,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Transitioning to a new topic about objections."
+  },
+  {
+   "start": 176,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Addressing the common objection 'I need time to think'."
+  },
+  {
+   "start": 223,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 2,
+   "why": "Explaining the frustration with vague responses and seeking transparency."
+  },
+  {
+   "start": 263,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 2,
+   "why": "Introducing a method to ask direct questions without seeming rude."
+  },
+  {
+   "start": 291,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Concluding with the magic words 'just out of curiosity'."
+  }
+ ],
+ "w093": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald hides pills and waits at restaurant"
+  },
+  {
+   "start": 14,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Setting the scene in Washington D.C. with rain"
+  },
+  {
+   "start": 40,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald takes medication while reflecting on his sister"
+  },
+  {
+   "start": 73,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald talks to his wife about their dog"
+  },
+  {
+   "start": 122,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald observes the city and reflects on his life"
+  },
+  {
+   "start": 159,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald talks to his wife about work and Huanna"
+  },
+  {
+   "start": 223,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald ends call with wife and enters restaurant"
+  },
+  {
+   "start": 241,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald meets Anna at the restaurant"
+  }
+ ],
+ "w094": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Donald reflects on a dead man's report and his own resistance to medication."
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Donald and Anna share intimate moments and routine activities in their shared space."
+  },
+  {
+   "start": 256,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Donald studies Victor's files and searches for his sister Charlotte."
+  }
+ ],
+ "w095": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Donald enters the storeroom, recalling Anna's note."
+  },
+  {
+   "start": 122,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Donald experiences claustrophobia and fear in the storeroom."
+  },
+  {
+   "start": 207,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Donald finds his locker and opens it, discovering a bag labeled 'legacy'."
+  }
+ ],
+ "w096": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Mickey receives a box from Dancer, initially thinking it's a gift."
+  },
+  {
+   "start": 25,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Mickey discovers the contents of the box are golden wings, causing shock and anger."
+  },
+  {
+   "start": 62,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Dancer and Harmony explain their request to Mickey, who is skeptical."
+  },
+  {
+   "start": 122,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "Mickey dismisses the request as impossible, but Dancer insists."
+  },
+  {
+   "start": 166,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 4,
+   "why": "Mickey and Dancer argue about the feasibility of the task."
+  },
+  {
+   "start": 226,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 3,
+   "why": "Mickey questions the ability to make the person smarter, but Dancer claims he can think like a lion."
+  },
+  {
+   "start": 259,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Mickey mocks the idea of making a 'roaster' into a 'gold', but recognizes the narrator from a video."
+  }
+ ],
+ "w097": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A girl on a horse observes the narrator and Cassius from a distance."
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Cassius tries to flirt with the girl, but she sees through his lies."
+  },
+  {
+   "start": 220,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "The girl reveals she knows about their lack of resources and Ceres' presence."
+  },
+  {
+   "start": 295,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "The girl offers a deal to the narrator in exchange for information."
+  }
+ ],
+ "w098": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "A tense conversation about Apollo and proctors"
+  },
+  {
+   "start": 2,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Moving south along the river with scouts"
+  },
+  {
+   "start": 3,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "A campfire story about Pikes' childhood"
+  }
+ ],
+ "w099": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Protagonist works on sigil blueprint while reflecting on attunements and marks."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Alora Theus visits, leading to a tense negotiation about sigil production."
+  },
+  {
+   "start": 252,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Protagonist explains sigil-making strategy to Alora, revealing deeper intentions."
+  }
+ ],
+ "w100": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Exploring a maze with traps and monsters"
+  },
+  {
+   "start": 121,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Finding an invisible wall and bridge"
+  },
+  {
+   "start": 211,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Climbing stairs to the next floor"
+  },
+  {
+   "start": 266,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Facing a new maze floor with doorways"
+  }
+ ],
+ "w101": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Grandpa talks about Annabelle Farron and the Simulakra"
+  },
+  {
+   "start": 1,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Grandpa explains his work on the urns and his plan to destroy the enemy"
+  },
+  {
+   "start": 2,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Grandpa's emotional breakdown and the narrator comforting him"
+  },
+  {
+   "start": 3,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Narrator reflects on Grandpa's decision to leave and packs up"
+  },
+  {
+   "start": 4,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Narrator finds a new doorway and steps through"
+  }
+ ],
+ "w102": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Fiona and Holt walk through Red Rock with Ash joining them."
+  },
+  {
+   "start": 128,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Holt speaks at Brode's memorial site, reflecting on his life."
+  },
+  {
+   "start": 253,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Holt and Ash share a quiet moment of comfort after the memorial."
+  }
+ ],
+ "w103": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Holt is stopped by a guard at the town gates"
+  },
+  {
+   "start": 174,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Holt encounters an ascendant in the market"
+  },
+  {
+   "start": 211,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Holt returns to his group and reopens the bond to ash"
+  },
+  {
+   "start": 261,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Holt and his group discuss the bond with the dragon"
+  }
+ ],
+ "w104": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Halt and Abrand discuss a dragon brain orb"
+  },
+  {
+   "start": 260,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Talia and the Elder prepare to enter a tunnel"
+  }
+ ],
+ "w105": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 3,
+   "why": "A Martian artist's accidental discorporation during creation of a masterpiece"
+  },
+  {
+   "start": 218,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Martian art categories and the dilemma of judging a post-discorporation work"
+  },
+  {
+   "start": 330,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Valentine Michael Smith's simple life on Earth, enjoying swimming and learning to read"
+  }
+ ],
+ "w106": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Ventramp expresses unhappiness about Mike's situation."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Chubel explains his legal strategy to make Mike an ambassador."
+  },
+  {
+   "start": 222,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 3,
+   "why": "Ventramp reveals his suspicion that Mike is a Martian scout."
+  },
+  {
+   "start": 280,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Caxton argues against the idea of Mars invading Earth."
+  }
+ ],
+ "w107": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Mike and Dawn check into a beach hotel, Mike rushes to the ocean alone"
+  },
+  {
+   "start": 60,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "Jill and Ben share a tender goodbye before her transition class"
+  },
+  {
+   "start": 122,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 1,
+   "why": "Caxed explains his concerns about Mike and Dawn to Jubil"
+  },
+  {
+   "start": 165,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "Ben wakes up confused after a night with Dawn"
+  }
+ ],
+ "w108": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "A tense legal argument about protocol and evidence"
+  },
+  {
+   "start": 227,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "A quiet moment of reflection after a confrontation"
+  },
+  {
+   "start": 233,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "A tense confrontation in a galley"
+  },
+  {
+   "start": 259,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "A crew member leaves to give space"
+  },
+  {
+   "start": 283,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "A quiet conversation about the confrontation"
+  }
+ ],
+ "w109": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Van and Perry discuss pirates' crimes"
+  },
+  {
+   "start": 120,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Van orders action stations"
+  },
+  {
+   "start": 123,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Zeno misunderstands 'action stations'"
+  },
+  {
+   "start": 143,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "Van pursues pirate ship"
+  },
+  {
+   "start": 267,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Pirates surrender, Van refuses to accept"
+  },
+  {
+   "start": 288,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 5,
+   "why": "Fafnir destroys pirate ship"
+  }
+ ],
+ "w110": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Characters discuss a weapon's failure to damage an enemy target."
+  },
+  {
+   "start": 227,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Characters consider a new strategy for attacking the enemy ship from behind."
+  },
+  {
+   "start": 273,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Characters discuss radiation dangers from a nearby neutron star."
+  },
+  {
+   "start": 294,
+   "music": "silence",
+   "mood": "",
+   "intensity": 2,
+   "why": "Characters agree to collaborate on finding a solution to their predicament."
+  }
+ ],
+ "w111": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 4,
+   "why": "A tense negotiation over Miriam's safety and control of information systems."
+  },
+  {
+   "start": 154,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "A quiet moment of reflection after the negotiation, discussing a plan with Perry and Nettie P."
+  }
+ ],
+ "w112": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "A tense negotiation over coffee"
+  },
+  {
+   "start": 182,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 5,
+   "why": "A sudden shift to missile attack"
+  }
+ ],
+ "w113": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Katarik explains his past work with Retta to Terena and Katarik."
+  },
+  {
+   "start": 120,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Katarik gives instructions to the badgeon about arriving at Earth."
+  },
+  {
+   "start": 153,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "The group travels to Earth, with Gabby and Rabe reporting on their recovery efforts."
+  },
+  {
+   "start": 225,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "The narrator checks in with Hedrick and observes his positive change."
+  },
+  {
+   "start": 264,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Gabby's return and her improved outlook after dealing with Biggie Dawes' loot."
+  }
+ ],
+ "w114": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 1,
+   "why": "Bill DeButo waits for Philip and Celia at a conference table."
+  },
+  {
+   "start": 125,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Buto reveals the Q32 chip's purpose and its self-modification feature."
+  },
+  {
+   "start": 228,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Celia interrupts Buto's explanation about the Q32 chip."
+  },
+  {
+   "start": 294,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Celia questions the Q32 chip's capabilities."
+  }
+ ],
+ "w115": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Philip accepts a call from Patricia Aten about his project."
+  },
+  {
+   "start": 244,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "Philip reflects on Enrico Martinez and a YouTube video."
+  },
+  {
+   "start": 257,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "Police respond to a mall riot."
+  }
+ ],
+ "w116": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Han and Cooper plan a warrant for Trudeau's address based on a search."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "Officers arrive at Trudeau's apartment, prepare for a no-knock entry."
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "The team enters the apartment, finds Trudeau and Margot, and secures the scene."
+  },
+  {
+   "start": 360,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "Han interviews Trudeau, reviewing evidence and photos."
+  }
+ ],
+ "w117": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Characters discuss sponsorship details and crawler rankings."
+  },
+  {
+   "start": 123,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Donut receives a new sponsor and learns about a benefactor box."
+  },
+  {
+   "start": 204,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Donut and the narrator enter a club and discuss the upcoming info-commercial."
+  }
+ ],
+ "w118": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Characters discuss a mysterious explosion in a dungeon."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Character defends against accusations of murder."
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Explanation of the toy's self-destruct mechanism."
+  }
+ ],
+ "w119": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Character vents frustration about a demanding deity in a private journal entry."
+  },
+  {
+   "start": 109,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Team prepares for flight, discussing landing and engine issues."
+  },
+  {
+   "start": 160,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Team coordinates landing and repairs while navigating a dangerous situation."
+  },
+  {
+   "start": 210,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 4,
+   "why": "Team executes a risky takeoff from a precarious location."
+  }
+ ],
+ "w120": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Neil showers quickly to avoid waiting for teammates"
+  },
+  {
+   "start": 120,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Neil finds YMac and Andrew in nurse's office"
+  },
+  {
+   "start": 246,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Press leaves, Neil waits for teammates"
+  },
+  {
+   "start": 262,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Bus ride back with celebration and minor disruptions"
+  }
+ ],
+ "w121": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Andrew and Neil discuss team dynamics while Andrew arranges costumes."
+  },
+  {
+   "start": 125,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 3,
+   "why": "Andrew agrees to invite others, surprising the group."
+  },
+  {
+   "start": 155,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Nicky and Neil argue over costumes, ending with Nicky choosing Neil's outfit."
+  },
+  {
+   "start": 223,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Neil and Nicky head to Dan's room, where Dan reveals a visitor for Andrew."
+  }
+ ],
+ "w122": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 2,
+   "why": "Neil and Andrew share a quiet moment of vulnerability"
+  },
+  {
+   "start": 120,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Betsy and Neil discuss Andrew's departure"
+  },
+  {
+   "start": 242,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "Andrew leaves with Y. Mac"
+  },
+  {
+   "start": 272,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Neil and Y. Mac share a cigarette in silence"
+  }
+ ],
+ "w123": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Wheeler recounts the attack on the station"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "The group discusses the attackers' motives"
+  },
+  {
+   "start": 235,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 3,
+   "why": "Arrival at the hub to assess damage"
+  }
+ ],
+ "w124": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A tense conversation between Van and Funboy about confidence and battle readiness."
+  },
+  {
+   "start": 30,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Van assesses the damaged Iowa and coordinates with allies during a space battle."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 3,
+   "why": "Van decides to abandon the Iowa, leading to a moment of defeat and hope."
+  },
+  {
+   "start": 211,
+   "music": "score",
+   "mood": "epic brass and drums, big, triumphant",
+   "intensity": 5,
+   "why": "Van's mother arrives with reinforcements, turning the tide of battle."
+  }
+ ],
+ "w125": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Characters discuss celebration customs while maneuvering a boat."
+  },
+  {
+   "start": 15,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "A tense moment as they prepare to leave."
+  },
+  {
+   "start": 55,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 4,
+   "why": "A ship appears, threatening their escape."
+  },
+  {
+   "start": 114,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Team debates the threat and their options."
+  },
+  {
+   "start": 246,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 4,
+   "why": "The burst cannon malfunctions, leading to a crisis."
+  },
+  {
+   "start": 295,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 5,
+   "why": "A final curse as they realize they can't open the airlock."
+  }
+ ]
+}

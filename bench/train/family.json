@@ -1,0 +1,18 @@
+{
+ "warm solo piano, slow, tender": "calm",
+ "quiet guitar, unhurried, nostalgic": "calm",
+ "gentle harp and flute, calm, wonder": "calm",
+ "soft ambient pad, still, curious": "calm",
+ "bright acoustic guitar, light, hopeful": "bright",
+ "playful pizzicato, quick, mischievous": "bright",
+ "lively folk fiddle, upbeat, festive": "bright",
+ "tense low strings, slow pulse, ominous": "tense",
+ "dark drones, sparse, dread": "tense",
+ "eerie high strings, uneasy, mystery": "tense",
+ "driving percussion, fast, urgent": "action",
+ "rhythmic marching drums, determined": "action",
+ "epic brass and drums, big, triumphant": "action",
+ "pulsing synth, steady, focused": "focus",
+ "melancholy cello, slow, grief": "sad",
+ "shimmering strings, rising, awe": "awe"
+}

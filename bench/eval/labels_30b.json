@@ -1,0 +1,193 @@
+{
+ "hailmary": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Philosopher Pendulous measures pendulum in a robot-filled room"
+  },
+  {
+   "start": 242,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Philosopher recalls meeting Marissa at Murphy's"
+  },
+  {
+   "start": 263,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "Philosopher and Marissa share a quiet dinner at Murphy's"
+  }
+ ],
+ "martian": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "Mark calculates potato farming potential for survival"
+  },
+  {
+   "start": 145,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Mark analyzes food requirements and farming strategy"
+  },
+  {
+   "start": 221,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Mark assesses available space for expanding farmland"
+  }
+ ],
+ "starship": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "warm solo piano, slow, tender",
+   "intensity": 2,
+   "why": "Van laughs at the absurdity of the situation"
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "bright acoustic guitar, light, hopeful",
+   "intensity": 2,
+   "why": "Van agrees to go on a space flight with Perry"
+  },
+  {
+   "start": 158,
+   "music": "silence",
+   "mood": "",
+   "intensity": 3,
+   "why": "Perry turns off the lights, making the ship disappear"
+  },
+  {
+   "start": 232,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Van realizes the ship has returned after the lights went out"
+  }
+ ],
+ "alloy": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Waxillium prepares for a meeting while reflecting on his past."
+  },
+  {
+   "start": 162,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Waxillium hesitates before meeting Lord Harms, conflicted about his duty."
+  },
+  {
+   "start": 234,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Waxillium learns of another stolen shipment, disrupting his calm."
+  }
+ ],
+ "hwfwm": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "Jason helps a disoriented wizard up after a summoning accident."
+  },
+  {
+   "start": 120,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 4,
+   "why": "Wizard reveals he's a cannibal and attacks Jason."
+  },
+  {
+   "start": 212,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 5,
+   "why": "Jason fights the wizard and accidentally kills him."
+  },
+  {
+   "start": 277,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "Jason is left alone with the dead wizard, realizing what he's done."
+  }
+ ],
+ "dcc": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "A mysterious creature observes the narrator."
+  },
+  {
+   "start": 116,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 2,
+   "why": "Mordecai explains the Syndicate's plan to the narrator."
+  },
+  {
+   "start": 259,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "Mordecai reveals the planet's default on claim and the mining process."
+  }
+ ],
+ "bob": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 3,
+   "why": "Bob and Dr. Landis discuss security concerns"
+  },
+  {
+   "start": 240,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Bob explores the building with a roamer"
+  }
+ ],
+ "agreements": [
+  {
+   "start": 0,
+   "music": "song",
+   "mood": "",
+   "intensity": 1,
+   "why": "A man reflects on mirrors and dreams."
+  },
+  {
+   "start": 123,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "The narrator explains the concept of the Dream of the Planet."
+  },
+  {
+   "start": 236,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "The narrator describes how society teaches children to conform."
+  }
+ ]
+}

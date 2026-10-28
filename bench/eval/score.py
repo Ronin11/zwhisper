@@ -3,9 +3,16 @@
 usage: score.py <label> <out_dir_glob_prefix>   e.g. score.py qwen1.5b bench/eval/out_1.5b_
 For every reference scene, the predicted scene active at its midpoint is compared."""
 import json, re, sys, glob, os
-labels = json.load(open(os.path.join(os.path.dirname(__file__), "labels.json")))
 tag, prefix = sys.argv[1], sys.argv[2]
-tot = dict(n=0, music=0, mood=0, inten=0.0, bnd_hit=0, bnd_ref=0, bnd_pred=0, nscenes=0, win=0, secs=0.0)
+label_file = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--labels=")), os.path.join(os.path.dirname(__file__), "labels.json"))
+labels = json.load(open(label_file))
+tot = dict(n=0, music=0, mood=0, fam=0, inten=0.0, bnd_hit=0, bnd_ref=0, bnd_pred=0, nscenes=0, win=0, secs=0.0)
+FAMILY = {"warm solo piano, slow, tender": "calm", "quiet guitar, unhurried, nostalgic": "calm", "gentle harp and flute, calm, wonder": "calm",
+          "soft ambient pad, still, curious": "calm", "bright acoustic guitar, light, hopeful": "bright", "playful pizzicato, quick, mischievous": "bright",
+          "lively folk fiddle, upbeat, festive": "bright", "tense low strings, slow pulse, ominous": "tense", "dark drones, sparse, dread": "tense",
+          "eerie high strings, uneasy, mystery": "tense", "driving percussion, fast, urgent": "action", "rhythmic marching drums, determined": "action",
+          "epic brass and drums, big, triumphant": "action", "pulsing synth, steady, focused": "focus", "melancholy cello, slow, grief": "sad",
+          "shimmering strings, rising, awe": "awe", "": "none"}
 rows = []
 for name, refs in labels.items():
     path = f"{prefix}{name}.txt"
@@ -36,6 +43,7 @@ for name, refs in labels.items():
         tot["n"] += 1
         tot["music"] += p["music"] == r["music"]
         tot["mood"] += (p["mood"] == r["mood"]) if r["music"] == "score" else (p["music"] == r["music"])
+        tot["fam"] += (FAMILY.get(p["mood"], "?") == FAMILY.get(r["mood"], "?")) if r["music"] == "score" else (p["music"] == r["music"])
         tot["inten"] += abs(p["intensity"] - r["intensity"])
         rows.append((name, r["start"], r["music"], r["mood"][:22], r["intensity"], p["music"], p["mood"][:22], p["intensity"]))
     # boundaries (excluding the window start)
@@ -46,7 +54,7 @@ for name, refs in labels.items():
 n = max(tot["n"], 1)
 prec = tot["bnd_hit"] / max(tot["bnd_pred"], 1); rec = tot["bnd_hit"] / max(tot["bnd_ref"], 1)
 print(f"{tag:10s} windows {tot['win']}  scenes/window {tot['nscenes']/max(tot['win'],1):.1f}  "
-      f"music acc {tot['music']/n:.2f}  mood acc {tot['mood']/n:.2f}  intensity MAE {tot['inten']/n:.2f}  "
+      f"music acc {tot['music']/n:.2f}  mood acc {tot['mood']/n:.2f} family {tot['fam']/n:.2f}  intensity MAE {tot['inten']/n:.2f}  "
       f"boundary P {prec:.2f} R {rec:.2f}  {tot['secs']/max(tot['win'],1):.0f} s/window")
 if "-v" in sys.argv:
     for r in rows:

@@ -1,0 +1,173 @@
+{
+ "hailmary_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "alone, pendulum experiments, working out he is not on Earth"
+  }
+ ],
+ "hailmary_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 2,
+   "why": "flashback: steak and beer with Marissa, a worried friend"
+  }
+ ],
+ "martian_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "melancholy cello, slow, grief",
+   "intensity": 2,
+   "why": "the calorie math says he starves; depressed"
+  }
+ ],
+ "martian_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 2,
+   "why": "Sol 25 log: planning farmland, problem solving"
+  }
+ ],
+ "starship_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Van laughing at the absurdity, banter with Perry, agrees to fly"
+  }
+ ],
+ "starship_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 2,
+   "why": "lights out, the ship vanishes, alone in the dark barn doubting his sanity"
+  }
+ ],
+ "starship_2": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "shimmering strings, rising, awe",
+   "intensity": 3,
+   "why": "displacement, the ship returns, stealth explained"
+  }
+ ],
+ "alloy_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "quiet guitar, unhurried, nostalgic",
+   "intensity": 1,
+   "why": "dressing for Lord Harms, the house, his mother's hopes"
+  }
+ ],
+ "alloy_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "another steel shipment stolen, the Vanishers, the itch to investigate"
+  }
+ ],
+ "hwfwm_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "playful pizzicato, quick, mischievous",
+   "intensity": 2,
+   "why": "Jason helps the wizard up, banter"
+  }
+ ],
+ "hwfwm_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "dark drones, sparse, dread",
+   "intensity": 3,
+   "why": "the wizard turns: never tasted an Outworlder"
+  }
+ ],
+ "hwfwm_2": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "driving percussion, fast, urgent",
+   "intensity": 5,
+   "why": "knife fight on the floor, the wizard dies"
+  }
+ ],
+ "hwfwm_3": [
+  {
+   "start": 0,
+   "music": "silence",
+   "mood": "",
+   "intensity": 1,
+   "why": "aftermath, bloody, ragged breathing"
+  }
+ ],
+ "dcc_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 2,
+   "why": "Mordecai explains the dungeon and the aliens, Carl incredulous"
+  }
+ ],
+ "dcc_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "tense low strings, slow pulse, ominous",
+   "intensity": 2,
+   "why": "Chapter 4: the syndicate seeds worlds and strips them; Borant"
+  }
+ ],
+ "bob_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "eerie high strings, uneasy, mystery",
+   "intensity": 2,
+   "why": "the nuke in the basement, Dr. Landis explains the danger"
+  }
+ ],
+ "bob_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "pulsing synth, steady, focused",
+   "intensity": 3,
+   "why": "a roamer sneaks through the air ducts mapping the building"
+  }
+ ],
+ "agreements_0": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "gentle harp and flute, calm, wonder",
+   "intensity": 1,
+   "why": "the smoky mirror parable ends"
+  }
+ ],
+ "agreements_1": [
+  {
+   "start": 0,
+   "music": "score",
+   "mood": "soft ambient pad, still, curious",
+   "intensity": 1,
+   "why": "lecture: domestication and the dream of the planet"
+  }
+ ]
+}

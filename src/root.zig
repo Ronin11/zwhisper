@@ -18,6 +18,7 @@ pub const tokenizer = @import("tokenizer.zig");
 pub const gguf = @import("gguf.zig");
 pub const bpe = @import("bpe.zig");
 pub const llm = @import("llm.zig");
+pub const bert = @import("bert.zig");
 
 pub const Model = model.Model;
 pub const Engine = transcribe.Engine;
@@ -37,4 +38,5 @@ test {
     _ = gguf;
     _ = bpe;
     _ = llm;
+    _ = bert;
 }

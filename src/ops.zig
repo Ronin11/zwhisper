@@ -353,15 +353,15 @@ const NormJob = struct {
     n: usize,
     rows_per_task: usize,
     m: usize,
+    eps: f32,
     fn run(j: *const NormJob, task: usize) void {
         const r0 = task * j.rows_per_task;
         const r1 = @min(r0 + j.rows_per_task, j.m);
-        for (r0..r1) |i| normRow(j.x[i * j.n ..][0..j.n], j.w, j.b, j.out[i * j.n ..][0..j.n]);
+        for (r0..r1) |i| normRow(j.x[i * j.n ..][0..j.n], j.w, j.b, j.eps, j.out[i * j.n ..][0..j.n]);
     }
 };
 
-inline fn normRow(row: []const f32, w: []const f32, b: []const f32, o: []f32) void {
-    const eps: f32 = 1e-5;
+inline fn normRow(row: []const f32, w: []const f32, b: []const f32, eps: f32, o: []f32) void {
     const n = row.len;
     var sv: Vec = @splat(0);
     var i: usize = 0;
@@ -393,9 +393,14 @@ inline fn normRow(row: []const f32, w: []const f32, b: []const f32, o: []f32) vo
 
 /// LayerNorm over each row of x[m][n] into out, eps as ggml_norm (1e-5).
 pub fn layerNorm(pool: *Pool, x: []const f32, m: usize, n: usize, w: []const f32, b: []const f32, out: []f32) void {
+    layerNormEps(pool, x, m, n, w, b, 1e-5, out);
+}
+
+/// LayerNorm with an explicit epsilon (BERT uses 1e-12).
+pub fn layerNormEps(pool: *Pool, x: []const f32, m: usize, n: usize, w: []const f32, b: []const f32, eps: f32, out: []f32) void {
     var t = clock.Timer.start();
     const rows_per_task: usize = 64;
-    const job = NormJob{ .x = x, .w = w, .b = b, .out = out, .n = n, .rows_per_task = rows_per_task, .m = m };
+    const job = NormJob{ .x = x, .w = w, .b = b, .out = out, .n = n, .rows_per_task = rows_per_task, .m = m, .eps = eps };
     pool.parallelFor((m + rows_per_task - 1) / rows_per_task, &job, NormJob.run);
     if (profile.enabled) profile.norm += t.lap();
 }

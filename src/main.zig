@@ -15,6 +15,10 @@ const usage =
     \\  llmtokens <model.gguf> <text>       BPE token ids for text
     \\  llm <model.gguf> [-t N] [--max N] [--ctx N] [--system S] [--rep P] [--raw] <prompt>
     \\                                      chat with a Qwen2 model, streaming
+    \\  embed <minilm.gguf> <transcript.jsonl>... | --text T
+    \\                                      sentence embedding per transcript (BERT/MiniLM)
+    \\  features <model.gguf> <transcript.jsonl>... [-t N]
+    \\                                      mean-pooled hidden state per transcript, one line each
     \\  scenes <model.gguf> <transcript.jsonl> [-t N] [--ctx N]
     \\                                      scenes for a transcript, template-driven
     \\  transcribe <model> <wav> [-t N] [--json] [--no-context] [--no-voices]
@@ -39,7 +43,10 @@ pub fn main(init: std.process.Init) !void {
     const gpa = std.heap.smp_allocator;
     const cmd = args[1];
 
-    if (std.mem.eql(u8, cmd, "llm") or std.mem.eql(u8, cmd, "ggufinfo") or std.mem.eql(u8, cmd, "llmtokens") or std.mem.eql(u8, cmd, "scenes")) {
+    if (std.mem.eql(u8, cmd, "embed")) {
+        return embedMain(io, out, gpa, args);
+    }
+    if (std.mem.eql(u8, cmd, "llm") or std.mem.eql(u8, cmd, "ggufinfo") or std.mem.eql(u8, cmd, "llmtokens") or std.mem.eql(u8, cmd, "scenes") or std.mem.eql(u8, cmd, "features")) {
         return llmMain(io, out, gpa, cmd, args);
     }
 
@@ -218,6 +225,63 @@ pub fn main(init: std.process.Init) !void {
     std.process.exit(2);
 }
 
+fn embedMain(io: Io, out: *Io.Writer, gpa: std.mem.Allocator, args: []const []const u8) !void {
+    var mapped = try MappedFile.open(io, args[2]);
+    defer mapped.close();
+    var f = try zw.gguf.File.parse(gpa, mapped.data);
+    defer f.deinit();
+    var threads: usize = @max(1, (std.Thread.getCpuCount() catch 4) - 1);
+    var paths: std.ArrayList([]const u8) = .empty;
+    defer paths.deinit(gpa);
+    var raw_text: ?[]const u8 = null;
+    var i: usize = 3;
+    while (i < args.len) : (i += 1) {
+        if (std.mem.eql(u8, args[i], "-t") and i + 1 < args.len) {
+            i += 1;
+            threads = try std.fmt.parseInt(usize, args[i], 10);
+        } else if (std.mem.eql(u8, args[i], "--text") and i + 1 < args.len) {
+            i += 1;
+            raw_text = args[i];
+        } else try paths.append(gpa, args[i]);
+    }
+    const m = try zw.bert.Model.load(gpa, &f, threads);
+    defer m.deinit();
+    const vec = try gpa.alloc(f32, m.n_embd);
+    defer gpa.free(vec);
+    if (raw_text) |t| {
+        const ids = try m.encode(gpa, t);
+        defer gpa.free(ids);
+        try out.print("tokens:", .{});
+        for (ids) |id| try out.print(" {s}", .{m.tokens[id]});
+        try out.writeAll("\n");
+        var timer = clock.Timer.start();
+        try m.embed(gpa, t, vec);
+        const ns = timer.lap();
+        try out.print("embedding[0..8] =", .{});
+        for (vec[0..8]) |v| try out.print(" {d:.4}", .{v});
+        try out.print("  ({d:.1} ms)\n", .{ms(ns)});
+        return;
+    }
+    for (paths.items) |path| {
+        var tf = MappedFile.open(io, path) catch continue;
+        defer tf.close();
+        var text: std.ArrayList(u8) = .empty;
+        defer text.deinit(gpa);
+        var it = std.mem.splitScalar(u8, tf.data, '\n');
+        while (it.next()) |line| {
+            const ts = std.mem.indexOf(u8, line, "\"text\":\"") orelse continue;
+            const te = std.mem.lastIndexOf(u8, line, "\",\"tokens\"") orelse continue;
+            try text.appendSlice(gpa, std.mem.trim(u8, line[ts + 8 .. te], " "));
+            try text.append(gpa, ' ');
+        }
+        try m.embed(gpa, text.items, vec);
+        try out.print("{s}", .{path});
+        for (vec) |v| try out.print(" {d:.5}", .{v});
+        try out.writeAll("\n");
+        try out.flush();
+    }
+}
+
 fn llmMain(io: Io, out: *Io.Writer, gpa: std.mem.Allocator, cmd: []const u8, args: []const []const u8) !void {
     var mapped = try MappedFile.open(io, args[2]);
     defer mapped.close();
@@ -240,7 +304,7 @@ fn llmMain(io: Io, out: *Io.Writer, gpa: std.mem.Allocator, cmd: []const u8, arg
         var tt = f.tensors.iterator();
         var shown: usize = 0;
         while (tt.next()) |kv| : (shown += 1) {
-            if (shown >= 12) break;
+            if (shown >= 12 and !std.mem.eql(u8, args[args.len - 1], "--all")) break;
             const t = kv.value_ptr.*;
             try out.print("  tensor {s} {t} [{d} {d} {d} {d}]\n", .{ kv.key_ptr.*, t.ty, t.ne[0], t.ne[1], t.ne[2], t.ne[3] });
         }
@@ -288,6 +352,34 @@ fn llmMain(io: Io, out: *Io.Writer, gpa: std.mem.Allocator, cmd: []const u8, arg
         try out.writeAll("\n");
         return;
     }
+    if (std.mem.eql(u8, cmd, "features")) {
+        // every extra arg is a transcript JSONL; one line of feature floats per file
+        for (args[3..]) |path| {
+            if (path.len > 0 and path[0] == '-') continue;
+            var tf = MappedFile.open(io, path) catch continue;
+            defer tf.close();
+            var text: std.ArrayList(u8) = .empty;
+            defer text.deinit(gpa);
+            var it = std.mem.splitScalar(u8, tf.data, '\n');
+            while (it.next()) |line| {
+                const ts = std.mem.indexOf(u8, line, "\"text\":\"") orelse continue;
+                const te = std.mem.lastIndexOf(u8, line, "\",\"tokens\"") orelse continue;
+                try text.appendSlice(gpa, std.mem.trim(u8, line[ts + 8 .. te], " "));
+                try text.append(gpa, '\n');
+            }
+            const toks = try m.tok.encode(gpa, text.items);
+            defer gpa.free(toks);
+            const feat = try gpa.alloc(f32, m.n_embd);
+            defer gpa.free(feat);
+            try m.features(toks[0..@min(toks.len, m.n_ctx)], feat);
+            try out.print("{s}", .{path});
+            for (feat) |v| try out.print(" {d:.5}", .{v});
+            try out.writeAll("\n");
+            try out.flush();
+        }
+        return;
+    }
+
     if (std.mem.eql(u8, cmd, "scenes")) {
         // prompt_text is a transcript JSONL path; lines are built as the worker does
         var tf = try MappedFile.open(io, prompt_text);

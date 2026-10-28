@@ -5,3 +5,10 @@ zig-out/
 ref/build/
 bench/*.jsonl
 *.f32
+bench/train/*.jsonl
+bench/train/snips/
+bench/eval/snips/
+bench/eval/snips30/
+bench/train/*.txt
+bench/eval/out_*.txt
+bench/eval/cal_*.txt

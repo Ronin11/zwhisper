@@ -237,6 +237,23 @@ pub const Model = struct {
         }
     }
 
+    /// Mean of the final hidden state (before the output norm) over all of `tokens`,
+    /// fed in batches from a fresh context. `out` has n_embd floats. A frozen feature
+    /// vector for a window of text, for the trained tagger.
+    pub fn features(m: *Model, tokens: []const u32, out: []f32) !void {
+        if (tokens.len > m.n_ctx) return error.ContextFull;
+        @memset(out, 0);
+        m.reset();
+        var i: usize = 0;
+        while (i < tokens.len) {
+            const n = @min(m.batch, tokens.len - i);
+            m.forward(tokens[i .. i + n]);
+            for (0..n) |r| ops.add(out, m.x[r * m.n_embd ..][0..m.n_embd]);
+            i += n;
+        }
+        ops.scale(out, 1.0 / @as(f32, @floatFromInt(tokens.len)));
+    }
+
     /// Feed a prompt in batches; returns nothing, logits are for its last token.
     pub fn prompt(m: *Model, tokens: []const u32) !void {
         if (m.n_past + tokens.len > m.n_ctx) return error.ContextFull;
