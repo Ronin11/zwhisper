@@ -1,0 +1,6 @@
+     0s  score   1  The narrator and his horde leave the room.
+        mood: soft ambient pad, still, curious
+     6s  score   4  The narrator reveals information about a nuclear bomb in the basement.
+        mood: dark drones, sparse, dread
+   128s  score   4  Dr. Landis explains that there are factions within faith who support or oppose the project, and he is not sure who has control over when to activate a nuke.
+        mood: dark drones, sparse, dread

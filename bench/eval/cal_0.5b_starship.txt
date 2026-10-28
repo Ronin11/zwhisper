@@ -1,0 +1,7 @@
+     0s  silence 2  General Scents asks Perry if he's crazy.
+    10s  song    4  Perry explains his grandfather was a peacemaker.
+        song: piano - Van
+   296s  song    4  Perry explains his grandfather was a peacemakerPerry explains his grandfather was a peacemaker.
+        song: guitarguitar - VanVan
+   347s  song    4  The Dragon-Ed is fully stealthed against any sort of detection that doesn't operate on terrestrial theoretical physics terrestrial theoretical physics
+        song: driving percussiondriving percussion - Dragon-EdDragon-Ed

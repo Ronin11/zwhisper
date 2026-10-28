@@ -1,0 +1,8 @@
+     0s  score   4  The narrator is describing their situation and the work they have done to prepare for survival.
+        mood: dark drones, sparse, dread
+     5s  score   4  The narrator reflects on past algebra class problems, relating them to their current situation.
+        mood: dark drones, sparse, dread
+    64s  score   4  The narrator calculates how many calories they need per day and how much farmland they can make.
+        mood: dark drones, sparse, dread
+  7171s  score   4  The narrator considers using pop tents as farmland, but realizes it's not a good idea The narrator considers using pop tents as farmland, but realizes it's not a good idea.
+        mood: dark drones, sparse, dread

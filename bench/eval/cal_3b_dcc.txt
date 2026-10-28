@@ -1,0 +1,6 @@
+     0s  score   4  The narrator is confronted by a golden eagle-like creature.
+        mood: dark drones, sparse, dread
+     6s  score   4  The narrator explains his situation to Mordecai, including the game's mechanics and his alien origins.
+        mood: dark drones, sparse, dread
+   120s  score   4  Mordecai provides a quick overview of how the Syndicate seeds worlds and interacts with humansMordecai provides a quick overview of how the Syndicate seeds worlds and interacts with humans.
+        mood: dark drones, sparse, dread

@@ -1,0 +1,8 @@
+     0s  score   2  Jason examines the stranger, offering help.
+        mood: soft ambient pad, still, curious
+     5s  score   4  Wizard looks confused and angry at Jason
+        mood: dark drones, sparse, dread
+    70s  score   4  Wizard pulls a knife out of the drawerWizard pulls a knife out of the drawer
+        mood: dark drones, sparse, dread
+  8182s  score   4  Jason tries to grab onto the wizard's arm while they fall to their knees
+        mood: dark drones, sparse, dread

@@ -1,0 +1,8 @@
+     0s  score   1  Watney reflects on his efforts and the current state of his situation.
+        mood: soft ambient pad, still, curious
+     5s  song    1  Watney feels depressed after a meal and realizes he needs to find more food.
+        song: Johansson - Beatles Beatles
+    90s  score   4  Watney calculates how long potatoes will last him, realizing it's not enough to sustain him for 1387 days.
+        mood: dark drones, sparse, dread
+   125s  score   4  Watney decides on a new plan to extend his survival time by planting more crops in unused areas of the Hab and rovers, while also increasing water usage.
+        mood: soft ambient pad, still, curious

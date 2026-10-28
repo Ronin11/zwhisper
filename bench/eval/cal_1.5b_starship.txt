@@ -1,0 +1,8 @@
+     0s  score   4  General Scents is in a room with Perry, discussing his grandfather's peacemaking work.
+        mood: dark drones, sparse, dread
+   120s  score   4  Perry turns off the lights and disappears.
+        mood: dark drones, sparse, dread
+132864s  score   4  Van enters the ship and sees Perry insideVan enters the ship and sees Perry inside.
+        mood: dark drones, sparse, dread
+159764s  score   4  The lights go out, causing Van to hallucinate about being in spaceThe lights go out, causing Van to hallucinate about being in space.
+        mood: dark drones, sparse, dread

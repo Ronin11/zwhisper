@@ -1,0 +1,8 @@
+     0s  score   4  Waxillium enters the mansion and hears a chiming.
+        mood: dark drones, sparse, dread
+     5s  score   4  Tiong walks alongside Waxillium.
+        mood: dark drones, sparse, dread
+    60s  score   4  Miss Grimes joins them, walking along the balustradeMiss Grimes joins them, walking along the balustrade.
+        mood: dark drones, sparse, dread
+  7121s  score   4  Waxillium hesitates before reaching the top of staircaseWaxillium hesitates before reaching the top of staircase.
+        mood: dark drones, sparse, dread

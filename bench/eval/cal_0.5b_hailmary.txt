@@ -1,0 +1,7 @@
+     0s  silence 2  I look down at my sheet toga.
+     2s  song    4  My pendulum is now four and a half meters lower than it was before.
+        song: driving percussion, fast, urgent - Pendulum
+    39s  song    4  The formula for a pendulum and the formula for the force of a centrifuge.
+        song: tense low strings, slow pulse, ominous - Centrifugal Force
+401587s  song    4  Let's see.
+        song: soft ambient pad - Let's See

@@ -1,0 +1,8 @@
+     0s  song    4  The narrator introduces the characters and sets up the setting.
+        song: unknown - unknown
+     6s  song    4  Mordecai explains his role as a guildmaster.
+        song: unknown - unknown
+   130s  song    4  The narrator describes the process of seeding worlds with humansMordecai explains his role as a guildmaster.
+        song: Unknown - Unknown
+   245s  song    4  The narrator discusses their preparation for new worlds Mordecai nods to show understanding.
+        song: Unknown - Unknown

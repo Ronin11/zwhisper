@@ -1,0 +1,8 @@
+     0s  score   1  Waxillium prepares for his meeting with Lord Harms, checking his watch and folding a pocket square.
+        mood: soft ambient pad, still, curious
+     5s  score   1  Waxillium and Tiong walk to the hallway where they meet Miss Grimes.
+        mood: soft ambient pad, still, curious
+    70s  score   1  Miss Grimes mentions Waxillium's mother's hopes for him to marry a fine ladyMiss Grimes mentions Waxillium's mother’s hopes for him to marry a fine lady.
+        mood: soft ambient pad, still, curious
+   128s  score   1  Waxillium is nervous about the meeting with Lord Harms and considers his optionsWaxillum is nervous about the meeting with Lord Harms and considers his options.
+        mood: soft ambient pad, still, curious

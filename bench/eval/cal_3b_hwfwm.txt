@@ -1,0 +1,6 @@
+     0s  score   1  Jason wakes up and encounters a wizard in an unfamiliar room.
+        mood: soft ambient pad, still, curious
+     5s  score   1  The wizard is confused about Jason's presence and asks questions.
+        mood: soft ambient pad, still, curious
+   120s  score   4  A confrontation between the two ensues, leading to a fightA confrontation between the two ensues, leading to a fight.
+        mood: dark drones, sparse, dread

@@ -420,10 +420,20 @@ fn freeSlice(gpa: std.mem.Allocator, list: []Scene) void {
     gpa.free(list);
 }
 
+const music_options = [_][]const u8{ "score", "silence", "song" };
+const digit_options = [_][]const u8{ "1", "2", "3", "4", "5" };
+const more_options = [_][]const u8{ ",", "]" };
+
 pub const Filler = struct {
     m: *Model,
     gpa: std.mem.Allocator,
     recent: std.ArrayList(u32) = .empty,
+    /// Option scores under a neutral prompt, subtracted when choosing so an option's
+    /// own likelihood ("warm solo piano" is just a likely phrase) doesn't decide.
+    prior_mood: [moods.len]f32 = @splat(0),
+    prior_digit: [5]f32 = @splat(0),
+    prior_more: [2]f32 = @splat(0),
+    prior_music: [3]f32 = @splat(0),
 
     fn feed(f: *Filler, text: []const u8) !void {
         const toks = try f.m.tok.encode(f.gpa, text);
@@ -466,24 +476,17 @@ pub const Filler = struct {
         return copy;
     }
 
-    /// Pick among options. Two or three options are told apart by their first token's
-    /// logit; longer lists are scored by the mean log-probability of each option's whole
-    /// token sequence, teacher-forced, with the cache rolled back between trials.
-    fn choose(f: *Filler, options: []const []const u8) !usize {
-        var best: usize = 0;
-        var best_v: f32 = -std.math.inf(f32);
+    /// Score each option: its first token's log-probability for short lists, the mean
+    /// log-probability of its whole token sequence (teacher-forced, cache rolled back
+    /// between trials) for long ones. `out` receives one score per option.
+    fn score(f: *Filler, options: []const []const u8, out: []f32) !void {
         if (options.len <= 3) {
             for (options, 0..) |o, i| {
                 const toks = try f.m.tok.encode(f.gpa, o);
                 defer f.gpa.free(toks);
-                if (toks.len == 0) continue;
-                const v = f.m.logits[toks[0]];
-                if (v > best_v) {
-                    best_v = v;
-                    best = i;
-                }
+                out[i] = if (toks.len == 0) -std.math.inf(f32) else logProb(f.m.logits, toks[0]);
             }
-            return best;
+            return;
         }
         const mark = f.m.n_past;
         const saved = try f.gpa.dupe(f32, f.m.logits);
@@ -491,7 +494,10 @@ pub const Filler = struct {
         for (options, 0..) |o, i| {
             const toks = try f.m.tok.encode(f.gpa, o);
             defer f.gpa.free(toks);
-            if (toks.len == 0) continue;
+            if (toks.len == 0) {
+                out[i] = -std.math.inf(f32);
+                continue;
+            }
             @memcpy(f.m.logits, saved);
             f.m.n_past = mark;
             var sum: f32 = 0;
@@ -499,15 +505,42 @@ pub const Filler = struct {
                 sum += logProb(f.m.logits, t);
                 f.m.forward(&.{t});
             }
-            const v = sum / @as(f32, @floatFromInt(toks.len));
+            out[i] = sum / @as(f32, @floatFromInt(toks.len));
+        }
+        @memcpy(f.m.logits, saved);
+        f.m.n_past = mark;
+    }
+
+    /// Pick the option whose score beats its neutral-prompt prior by the most.
+    fn choose(f: *Filler, options: []const []const u8, prior: []const f32) !usize {
+        var sc: [moods.len]f32 = undefined;
+        try f.score(options, sc[0..options.len]);
+        var best: usize = 0;
+        var best_v: f32 = -std.math.inf(f32);
+        for (0..options.len) |i| {
+            const v = sc[i] - prior[i];
             if (v > best_v) {
                 best_v = v;
                 best = i;
             }
         }
-        @memcpy(f.m.logits, saved);
-        f.m.n_past = mark;
         return best;
+    }
+
+    /// Measure every option set under a neutral prompt so `choose` can discount it.
+    fn calibrate(f: *Filler) !void {
+        const toks = try f.m.chatPrompt(f.gpa, "You are a careful assistant that answers with JSON only.", "Describe one scene from a book as JSON with start, summary, music, mood and intensity.");
+        defer f.gpa.free(toks);
+        f.m.reset();
+        try f.m.prompt(toks);
+        try f.feed("{\"scenes\": [{\"start\": 0, \"summary\": \"A scene.\", \"music\": \"");
+        try f.score(&music_options, &f.prior_music);
+        try f.feed("score\", \"mood\": \"");
+        try f.score(&moods, &f.prior_mood);
+        try f.feed("soft ambient pad, still, curious\", \"intensity\": ");
+        try f.score(&digit_options, &f.prior_digit);
+        try f.feed("2}");
+        try f.score(&more_options, &f.prior_more);
     }
 };
 
@@ -535,13 +568,14 @@ pub fn scenes(m: *Model, gpa: std.mem.Allocator, chapter: []const u8, title: []c
         \\{s}
     , .{ chapter, title, first, mood_list, lines });
     defer gpa.free(head);
+    var f = Filler{ .m = m, .gpa = gpa };
+    defer f.recent.deinit(gpa);
+    try f.calibrate();
+
     const toks = try m.chatPrompt(gpa, "You are a careful assistant that answers with JSON only.", head);
     defer gpa.free(toks);
     m.reset();
     try m.prompt(toks);
-
-    var f = Filler{ .m = m, .gpa = gpa };
-    defer f.recent.deinit(gpa);
     var list: std.ArrayList(Scene) = .empty;
     errdefer freeSlice(gpa, list.toOwnedSlice(gpa) catch &.{});
 
@@ -560,8 +594,8 @@ pub fn scenes(m: *Model, gpa: std.mem.Allocator, chapter: []const u8, title: []c
         }
         sc.summary = try f.freeText(opts.max_field_tokens, "\"\n");
         try f.feed(try std.fmt.bufPrint(&scratch_buf, "{s}\", \"music\": \"", .{sc.summary}));
-        const music_opts = [_][]const u8{ "score", "silence", "song" };
-        const mi = try f.choose(&music_opts);
+        const music_opts = music_options;
+        const mi = try f.choose(&music_opts, &f.prior_music);
         sc.music = switch (mi) {
             0 => .score,
             1 => .silence,
@@ -570,7 +604,7 @@ pub fn scenes(m: *Model, gpa: std.mem.Allocator, chapter: []const u8, title: []c
         try f.feed(try std.fmt.bufPrint(&scratch_buf, "{s}\", ", .{music_opts[mi]}));
         if (sc.music == .score) {
             try f.feed("\"mood\": \"");
-            const mi2 = try f.choose(&moods);
+            const mi2 = try f.choose(&moods, &f.prior_mood);
             sc.mood = try gpa.dupe(u8, moods[mi2]);
             try f.feed(try std.fmt.bufPrint(&scratch_buf, "{s}\", ", .{sc.mood}));
         } else if (sc.music == .song) {
@@ -581,15 +615,15 @@ pub fn scenes(m: *Model, gpa: std.mem.Allocator, chapter: []const u8, title: []c
             try f.feed(try std.fmt.bufPrint(&scratch_buf, "{s}\", ", .{sc.song_title}));
         }
         try f.feed("\"intensity\": ");
-        const digits = [_][]const u8{ "1", "2", "3", "4", "5" };
-        const di = try f.choose(&digits);
+        const digits = digit_options;
+        const di = try f.choose(&digits, &f.prior_digit);
         sc.intensity = @intCast(di + 1);
         try f.feed(try std.fmt.bufPrint(&scratch_buf, "{s}}}", .{digits[di]}));
         try list.append(gpa, sc);
         // another scene, or the end of the list? let the model say, within the bounds
         if (n + 1 >= opts.max_scenes) break;
-        const more_opts = [_][]const u8{ ",", "]" };
-        const more = if (n + 1 < opts.min_scenes) 0 else try f.choose(&more_opts);
+        const more_opts = more_options;
+        const more = if (n + 1 < opts.min_scenes) 0 else try f.choose(&more_opts, &f.prior_more);
         if (more == 1) break;
         try f.feed(", ");
     }

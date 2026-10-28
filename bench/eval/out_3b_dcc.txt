@@ -1,0 +1,6 @@
+     0s  score   1  The narrator is confronted by a golden eagle-like creature.
+        mood: gentle harp and flute, calm, wonder
+     6s  score   1  The narrator explains his situation to Mordecai, including the game's mechanics and his alien origins.
+        mood: gentle harp and flute, calm, wonder
+   120s  score   1  Mordecai provides a quick overview of how the Syndicate seeds worlds and interacts with humansMordecai provides a quick overview of how the Syndicate seeds worlds and interacts with humans.
+        mood: gentle harp and flute, calm, wonder

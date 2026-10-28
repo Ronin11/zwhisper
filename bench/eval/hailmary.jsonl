@@ -1,0 +1,107 @@
+{"t0":0,"t1":200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I look down at my sheet toga.","tokens":[50363,314,804,866,379,616,9629,284,4908,13,50463]}
+{"t0":200,"t1":500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I am the great philosopher Pendulous.","tokens":[314,716,262,1049,23723,36865,6985,13,50613]}
+{"t0":500,"t1":650,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Incorrect.","tokens":[3457,47315,13,50688]}
+{"t0":650,"t1":1000,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I hang the pendulum on one of the robot hands near the ceiling.","tokens":[314,8181,262,44017,14452,319,530,286,262,9379,2832,1474,262,13387,13,50863]}
+{"t0":1000,"t1":1200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I hope it'll stay still for a while.","tokens":[314,2911,340,1183,2652,991,329,257,981,13,50963]}
+{"t0":1200,"t1":1600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I eyeball the distance between the robot hand and the ceiling.","tokens":[314,16067,439,262,5253,1022,262,9379,1021,290,262,13387,13,51163]}
+{"t0":1600,"t1":1800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I'll call it a meter.","tokens":[314,1183,869,340,257,16430,13,51263]}
+{"t0":1800,"t1":2300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" My pendulum is now four and a half meters lower than it was before.","tokens":[2011,44017,14452,318,783,1440,290,257,2063,10700,2793,621,340,373,878,13,51513]}
+{"t0":2300,"t1":2500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I repeat the experiment.","tokens":[314,9585,262,6306,13,51613]}
+{"t0":2500,"t1":2800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Ten minutes on the stopwatch and I count the total cycles.","tokens":[9368,2431,319,262,2245,8340,290,314,954,262,2472,16006,13,51763]}
+{"t0":2800,"t1":3000,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" The result?","tokens":[50363,383,1255,30,50463]}
+{"t0":3000,"t1":3300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" 346 cycles, same as upstairs.","tokens":[44729,16006,11,976,355,26148,13,50613]}
+{"t0":3300,"t1":3450,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Golly.","tokens":[402,5098,13,50688]}
+{"t0":3450,"t1":3900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Thing is, in a centrifuge, the farther you get from the center,","tokens":[21561,318,11,287,257,41563,2217,11,262,18485,345,651,422,262,3641,11,50913]}
+{"t0":3900,"t1":4200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" the higher the centripetal force will be.","tokens":[262,2440,262,1247,5528,316,282,2700,481,307,13,51063]}
+{"t0":4200,"t1":4900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" So if I were in a centrifuge, the gravity down here would be higher than it was upstairs.","tokens":[1406,611,314,547,287,257,41563,2217,11,262,13522,866,994,561,307,2440,621,340,373,26148,13,51413]}
+{"t0":4900,"t1":5100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" And it isn't.","tokens":[843,340,2125,470,13,51513]}
+{"t0":5100,"t1":5500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" At least not enough to get a different number of pendulum cycles.","tokens":[1629,1551,407,1576,284,651,257,1180,1271,286,44017,14452,16006,13,51713]}
+{"t0":5500,"t1":5900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" But what if I'm in a really big centrifuge?","tokens":[50363,887,644,611,314,1101,287,257,1107,1263,41563,2217,30,50563]}
+{"t0":5900,"t1":6300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" One so huge that the force difference between here and the lab is so small,","tokens":[1881,523,3236,326,262,2700,3580,1022,994,290,262,2248,318,523,1402,11,50763]}
+{"t0":6300,"t1":6600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" it doesn't change the number of cycles.","tokens":[340,1595,470,1487,262,1271,286,16006,13,50913]}
+{"t0":6600,"t1":6700,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Let's see.","tokens":[3914,338,766,13,50963]}
+{"t0":6700,"t1":7200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" The formula for a pendulum and the formula for the force of a centrifuge.","tokens":[383,10451,329,257,44017,14452,290,262,10451,329,262,2700,286,257,41563,2217,13,51213]}
+{"t0":7200,"t1":7500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Wait, I don't have the actual force, just a cycle count.","tokens":[16314,11,314,836,470,423,262,4036,2700,11,655,257,6772,954,13,51363]}
+{"t0":7500,"t1":7800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" So there's a one over X factor involved.","tokens":[1406,612,338,257,530,625,1395,5766,2950,13,51513]}
+{"t0":7800,"t1":8100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" This is actually a very instructive problem.","tokens":[770,318,1682,257,845,5048,425,1917,13,51663]}
+{"t0":8100,"t1":8300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I have a pen but no paper.","tokens":[314,423,257,3112,475,645,3348,13,51763]}
+{"t0":8300,"t1":8500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" That's okay, I have a wall.","tokens":[50363,1320,338,8788,11,314,423,257,3355,13,50463]}
+{"t0":8500,"t1":9000,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" After a lot of crazy prisoners scribbling on a wall type stuff, I have my answer.","tokens":[2293,257,1256,286,7165,10577,44661,11108,319,257,3355,2099,3404,11,314,423,616,3280,13,50713]}
+{"t0":9000,"t1":9300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Let's say I'm on Earth and in a centrifuge.","tokens":[3914,338,910,314,1101,319,3668,290,287,257,41563,2217,13,50863]}
+{"t0":9300,"t1":9900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" That would mean the centrifuge provides half a G, the rest being supplied by Earth.","tokens":[1320,561,1612,262,41563,2217,3769,2063,257,402,11,262,1334,852,14275,416,3668,13,51163]}
+{"t0":9900,"t1":10200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" According to my math, and I showed all my work,","tokens":[4784,284,616,10688,11,290,314,3751,477,616,670,11,51313]}
+{"t0":10200,"t1":10700,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" that centrifuge would need a 446 meter radius,","tokens":[326,41563,2217,561,761,257,604,3510,16430,16874,11,51563]}
+{"t0":10700,"t1":10900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" which is more than a quarter mile,","tokens":[543,318,517,621,257,3860,10591,11,51663]}
+{"t0":10900,"t1":11400,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" which would be spinning at 48 meters per second, over 100 miles per hour.","tokens":[50363,543,561,307,19493,379,4764,10700,583,1218,11,625,1802,4608,583,1711,13,50613]}
+{"t0":11400,"t1":11500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Hmm.","tokens":[43352,13,50663]}
+{"t0":11500,"t1":11900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I think mostly in metric when doing science stuff.","tokens":[314,892,4632,287,18663,618,1804,3783,3404,13,50863]}
+{"t0":11900,"t1":12000,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Interesting.","tokens":[43580,13,50913]}
+{"t0":12000,"t1":12300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Most scientists do though, right?","tokens":[4042,5519,466,996,11,826,30,51063]}
+{"t0":12300,"t1":12600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Even scientists who grew up in America.","tokens":[3412,5519,508,6348,510,287,2253,13,51213]}
+{"t0":12600,"t1":13000,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Anyway, that would be the largest centrifuge ever built,","tokens":[21836,11,326,561,307,262,4387,41563,2217,1683,3170,11,51413]}
+{"t0":13000,"t1":13200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" and why would anyone build it?","tokens":[290,1521,561,2687,1382,340,30,51513]}
+{"t0":13200,"t1":13500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Plus something like that would be loud as heck,","tokens":[8227,1223,588,326,561,307,7812,355,22574,11,51663]}
+{"t0":13500,"t1":13800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" whizzing through the air at 100 miles per hour.","tokens":[348,6457,278,832,262,1633,379,1802,4608,583,1711,13,51813]}
+{"t0":13800,"t1":14100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" At every least there'd be some turbulence here and there,","tokens":[50363,1629,790,1551,612,1549,307,617,47741,994,290,612,11,50513]}
+{"t0":14100,"t1":14300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" not to mention a lot of wind noise.","tokens":[407,284,3068,257,1256,286,2344,7838,13,50613]}
+{"t0":14300,"t1":14500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I don't hear or feel anything like that.","tokens":[314,836,470,3285,393,1254,1997,588,326,13,50713]}
+{"t0":14500,"t1":14700,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" This is getting weird.","tokens":[770,318,1972,7650,13,50813]}
+{"t0":14700,"t1":15100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Okay, what if I'm in space?","tokens":[16805,11,644,611,314,1101,287,2272,30,51013]}
+{"t0":15100,"t1":15400,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" There wouldn't be turbulence or wind resistance,","tokens":[1318,3636,470,307,47741,393,2344,6625,11,51163]}
+{"t0":15400,"t1":15600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" but the centrifuge would have to be bigger and faster","tokens":[475,262,41563,2217,561,423,284,307,5749,290,5443,51263]}
+{"t0":15600,"t1":15800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" because there's no gravity to help out.","tokens":[780,612,338,645,13522,284,1037,503,13,51363]}
+{"t0":15800,"t1":16100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" More math, more graffiti on the wall.","tokens":[3125,10688,11,517,28530,319,262,3355,13,51513]}
+{"t0":16100,"t1":16700,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" The radius would have to be 1,280 meters, close to a mile.","tokens":[383,16874,561,423,284,307,352,11,21033,10700,11,1969,284,257,10591,13,51813]}
+{"t0":16700,"t1":17200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Nothing anywhere near that big has ever been built for space.","tokens":[50363,10528,6609,1474,326,1263,468,1683,587,3170,329,2272,13,50613]}
+{"t0":17200,"t1":17600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" So I'm not in a centrifuge, and I'm not on Earth.","tokens":[1406,314,1101,407,287,257,41563,2217,11,290,314,1101,407,319,3668,13,50813]}
+{"t0":17600,"t1":17800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Another planet?","tokens":[6023,5440,30,50913]}
+{"t0":17800,"t1":18100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" But there isn't any planet, moon, or asteroid in the solar system","tokens":[887,612,2125,470,597,5440,11,8824,11,393,27460,287,262,6591,1080,51063]}
+{"t0":18100,"t1":18300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" that has this much gravity.","tokens":[326,468,428,881,13522,13,51163]}
+{"t0":18300,"t1":18600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Earth is the largest solid object in the whole system.","tokens":[3668,318,262,4387,4735,2134,287,262,2187,1080,13,51313]}
+{"t0":18600,"t1":18800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Sure, the gas giants are bigger,","tokens":[10889,11,262,3623,20178,389,5749,11,51413]}
+{"t0":18800,"t1":19200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" but unless I'm in a balloon floating around the winds of Jupiter,","tokens":[475,4556,314,1101,287,257,21190,12462,1088,262,13520,286,22721,11,51613]}
+{"t0":19200,"t1":19600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" there's just nowhere I could go to experience this force.","tokens":[612,338,655,12062,314,714,467,284,1998,428,2700,13,51813]}
+{"t0":19600,"t1":19900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" How do I know all this space stuff?","tokens":[50363,1374,466,314,760,477,428,2272,3404,30,50513]}
+{"t0":19900,"t1":20200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I just know it.","tokens":[314,655,760,340,13,50663]}
+{"t0":20200,"t1":20600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" It feels like second nature, information I use all the time.","tokens":[632,5300,588,1218,3450,11,1321,314,779,477,262,640,13,50863]}
+{"t0":20600,"t1":21100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Maybe I'm an astronomer or a planetary scientist.","tokens":[6674,314,1101,281,47603,393,257,27047,11444,13,51113]}
+{"t0":21100,"t1":21400,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Maybe I work for NASA or ESA or --","tokens":[6674,314,670,329,8884,393,42212,393,1377,51263]}
+{"t0":21600,"t1":21900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I met Marissa every Thursday night for steak and beer at Murphy's","tokens":[314,1138,1526,13808,790,3635,1755,329,26320,290,6099,379,14424,338,51513]}
+{"t0":21900,"t1":22200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" on Goff Street, always at 6 p.m.","tokens":[319,44572,3530,11,1464,379,718,279,13,76,13,51663]}
+{"t0":22200,"t1":22500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" and because the staff knew us, always at the same table.","tokens":[290,780,262,3085,2993,514,11,1464,379,262,976,3084,13,51813]}
+{"t0":22500,"t1":22700,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" We'd met almost 20 years ago in grad school.","tokens":[50363,775,1549,1138,2048,1160,812,2084,287,3915,1524,13,50463]}
+{"t0":22700,"t1":22900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" She dated my then roommate.","tokens":[1375,14567,616,788,33305,13,50563]}
+{"t0":22900,"t1":23200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Their relationship, like most in grad school,","tokens":[5334,2776,11,588,749,287,3915,1524,11,50713]}
+{"t0":23200,"t1":23500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" was a train wreck, and they broke up within three months,","tokens":[373,257,4512,15228,11,290,484,6265,510,1626,1115,1933,11,50863]}
+{"t0":23500,"t1":23800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" but she and I ended up becoming good friends.","tokens":[475,673,290,314,4444,510,5033,922,2460,13,51013]}
+{"t0":23800,"t1":24200,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" When the host saw me, he smiled and jerked his thumb toward the usual table.","tokens":[1649,262,2583,2497,502,11,339,13541,290,13665,9091,465,15683,3812,262,6678,3084,13,51213]}
+{"t0":24200,"t1":24500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I made my way through the kitschy decor to Marissa.","tokens":[314,925,616,835,832,262,19183,29658,11705,284,1526,13808,13,51363]}
+{"t0":24500,"t1":24800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" She had a couple of empty low-ball glasses in front of her","tokens":[1375,550,257,3155,286,6565,1877,12,1894,15232,287,2166,286,607,51513]}
+{"t0":24800,"t1":24900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" and a full one in her hand.","tokens":[290,257,1336,530,287,607,1021,13,51563]}
+{"t0":24900,"t1":25100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Apparently, she'd gotten started early.","tokens":[18626,11,673,1549,7891,2067,1903,13,51663]}
+{"t0":25100,"t1":25190,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"Pre-gaming, eh?\"","tokens":[366,6719,12,48616,11,32622,1701,314,531,11,5586,866,13,51763]}
+{"t0":25190,"t1":25300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I said, sitting down.","tokens":[366,6719,12,48616,11,32622,1701,314,531,11,5586,866,13,51763]}
+{"t0":25300,"t1":25600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" She looked down and fidgeted with her glass.","tokens":[50363,1375,3114,866,290,277,17484,276,351,607,5405,13,50513]}
+{"t0":25600,"t1":25800,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"Hey, what's wrong?\"","tokens":[366,10814,11,644,338,2642,1701,50613]}
+{"t0":25800,"t1":26000,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" She took a sip of whiskey.","tokens":[1375,1718,257,31145,286,29219,13,50713]}
+{"t0":26000,"t1":26200,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"Ref day at work.\"","tokens":[366,8134,1110,379,670,526,50813]}
+{"t0":26200,"t1":26300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I signaled the waiter.","tokens":[314,34676,262,46612,13,50863]}
+{"t0":26300,"t1":26500,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" He nodded and didn't even come over.","tokens":[679,14464,290,1422,470,772,1282,625,13,50963]}
+{"t0":26500,"t1":26800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" He knew I wanted a rib-eye, medium, mashed potatoes on the side","tokens":[679,2993,314,2227,257,12183,12,25379,11,7090,11,49159,18821,319,262,1735,51113]}
+{"t0":26800,"t1":26900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" and a pint of Guinness.","tokens":[290,257,35245,286,41559,13,51163]}
+{"t0":26900,"t1":27100,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Same thing I ordered every week.","tokens":[16766,1517,314,6149,790,1285,13,51263]}
+{"t0":27100,"t1":27247,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"How rough could it be?\"","tokens":[366,2437,5210,714,340,307,1701,314,1965,13,51363]}
+{"t0":27247,"t1":27300,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I asked.","tokens":[366,2437,5210,714,340,307,1701,314,1965,13,51363]}
+{"t0":27300,"t1":27500,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"Cushy government job with the DOE.","tokens":[366,34,1530,88,1230,1693,351,262,46984,13,51463]}
+{"t0":27500,"t1":27800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" You probably get, what, 20 days off a year?","tokens":[921,2192,651,11,644,11,1160,1528,572,257,614,30,51613]}
+{"t0":27800,"t1":28094,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" All you have to do is show up and you get paid, right?","tokens":[1439,345,423,284,466,318,905,510,290,345,651,3432,11,826,1701,51763]}
+{"t0":28100,"t1":28400,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Again. No laugh. Nothing.","tokens":[50363,6521,13,1400,6487,13,10528,13,50513]}
+{"t0":28400,"t1":28530,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"Oh, come on!\"","tokens":[366,5812,11,1282,319,2474,314,531,13,50613]}
+{"t0":28530,"t1":28600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" I said.","tokens":[366,5812,11,1282,319,2474,314,531,13,50613]}
+{"t0":28600,"t1":28800,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"Who pooped in your Rice Krispies?\"","tokens":[366,8241,745,19458,287,534,13823,27748,79,444,1701,50713]}
+{"t0":28800,"t1":28900,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" She sighed.","tokens":[1375,21893,13,50763]}
+{"t0":28900,"t1":29100,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"You know about the Petrovoline?\"","tokens":[366,1639,760,546,262,4767,18657,14453,1701,50863]}
+{"t0":29100,"t1":29400,"voice":0,"quoted":true,"pitch":0,"dist":0.000,"text":" \"Sure. Kind of an interesting mystery.","tokens":[366,19457,13,14927,286,281,3499,10715,13,51013]}
+{"t0":29400,"t1":29600,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" My guess is solar radiation.","tokens":[2011,4724,318,6591,11881,13,51113]}
+{"t0":29600,"t1":29800,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" Venus doesn't have a magnetic field,","tokens":[21094,1595,470,423,257,14091,2214,11,51213]}
+{"t0":29800,"t1":29994,"voice":0,"quoted":false,"pitch":0,"dist":0.000,"text":" but positively charged particles.","tokens":[475,19888,5047,13166,526,51313]}

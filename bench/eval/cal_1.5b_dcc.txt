@@ -1,0 +1,8 @@
+     0s  score   4  The narrator is in a world where they are being transformed by the game.
+        mood: dark drones, sparse, dread
+     6s  score   4  The narrator describes their home and possessions being recreated.
+        mood: dark drones, sparse, dread
+    82s  score   4  Mordecai explains that each dungeon is specially built for the world it inhabitsMordecai explains that each dungeon is specially built for the world it inhabits.
+        mood: dark drones, sparse, dread
+  1037s  score   4  Mordecai tells about his people, who generally last much longer than humans Mordecai tells about his people, who generally last much longer than humans
+        mood: dark drones, sparse, dread

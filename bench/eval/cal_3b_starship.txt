@@ -1,0 +1,8 @@
+     0s  score   1  Van Scents is laughing uncontrollably after Perry asks if he's okay.
+        mood: soft ambient pad, still, curious
+     7s  score   1  Perry tells Van that his grandfather was a peacemaker and Van is skeptical.
+        mood: soft ambient pad, still, curious
+   102s  score   1  Van realizes the ship has opened its hatch and Perry has entered it, but the lights have gone out. He feels disoriented.Van realizes the ship has opened its hatch and Perry has entered it,
+        mood: soft ambient pad, still, curious
+143143s  score   1  Perry turns off all lights in order to avoid detection by radar systems.Perry turns off all lights in order to avoid detection by radar systems.
+        mood: soft ambient pad, still, curious

@@ -1,0 +1,6 @@
+     0s  score   1  The narrator is working on a physics experiment involving pendulums and centrifuges.
+        mood: soft ambient pad, still, curious
+     5s  score   1  The narrator realizes the centrifuge he's imagining would be huge, but no such device has been built.
+        mood: soft ambient pad, still, curious
+   123s  score   1  The narrator considers the possibility of being in space to experience this force, but finds it unlikely due to lack of planets with such gravity
+        mood: soft ambient pad, still, curious
