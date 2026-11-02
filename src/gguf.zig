@@ -126,7 +126,7 @@ pub const File = struct {
             d.ne = .{ 1, 1, 1, 1 };
             for (0..nd) |i| d.ne[i] = @intCast(try r.readU64());
             d.n_dims = @intCast(nd);
-            d.ty = @enumFromInt(try r.readU32());
+            d.ty = @fromBackingInt(@intCast(try r.readU32()));
             d.off = @intCast(try r.readU64());
         }
         const data_start = (r.pos + alignment - 1) / alignment * alignment;

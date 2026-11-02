@@ -153,7 +153,7 @@ pub const Model = struct {
         while (r.remaining() >= 12) {
             const n_dims = try r.readU32();
             const name_len = try r.readU32();
-            const ty: Type = @enumFromInt(try r.readU32());
+            const ty: Type = @fromBackingInt(@intCast(try r.readU32()));
             if (n_dims == 0 or n_dims > 4) return error.Truncated;
             var ne = [4]usize{ 1, 1, 1, 1 };
             for (0..n_dims) |d| ne[d] = try r.readU32();
