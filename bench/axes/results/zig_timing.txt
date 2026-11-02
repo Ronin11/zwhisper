@@ -1,0 +1,1 @@
+scene: load 20 ms, 327 texts, 57.8 ms each

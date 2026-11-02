@@ -1,0 +1,3 @@
+majority               n= 448  silence 1.00  energy acc 0.61 MAE 0.44 ±1 0.94  valence 0.68  dark/light 0.00
+model @span            n= 448  silence 1.00  energy acc 0.70 MAE 0.30 ±1 1.00  valence 0.73  dark/light 0.34
+model @chunk           n= 448  silence 1.00  energy acc 0.70 MAE 0.30 ±1 1.00  valence 0.73  dark/light 0.34

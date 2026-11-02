@@ -1,0 +1,5 @@
+[
+  {"name": "silence", "kind": "noul", "instructions": "Should this passage have no music at all (front or back matter, credits, notes, reference text)?"},
+  {"name": "energy", "kind": "score", "instructions": "Energy of the passage, as the tempo and density of its music", "options": ["1", "2", "3", "4", "5"]},
+  {"name": "valence", "kind": "choice", "instructions": "Emotional colour of the passage", "options": [{"name": "dark", "description": "fear, dread, grief, menace"}, {"name": "neutral", "description": "matter-of-fact, mixed"}, {"name": "light", "description": "warmth, humour, hope, wonder"}]}
+]

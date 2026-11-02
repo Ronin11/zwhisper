@@ -1,0 +1,8 @@
+teacher agreement on 2293 chunks: silence 0.99  energy exact 0.65  within1 0.99  MAE 0.36  valence 0.74
+1669 of 2293 chunks labeled by consensus
+energy [(1, 8), (2, 1051), (3, 493), (4, 117)] valence {'neutral': 1048, 'dark': 366, 'light': 255} silence 0
+test books: ['All For the Game Series', 'Arcane Ascension', 'Backyard Starship Series', 'Dungeon Crawler Carl Series', 'Songs of Chaos', 'Stranger in a Strange Land', 'The Cosmere Series', 'The Sand Chronicles Series']
+L1: train 1342  test 327
+L2: train 923  test 117
+L4: train 226  test 29
+L8: train 26  test 4

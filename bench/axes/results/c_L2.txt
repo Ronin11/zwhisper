@@ -1,0 +1,4 @@
+majority               n= 234  silence 1.00  energy acc 0.59 MAE 0.49 ±1 0.92  valence 0.65  dark/light 0.00
+span-label ceiling     n= 234  silence 1.00  energy acc 0.79 MAE 0.21 ±1 1.00  valence 0.80  dark/light 0.95
+model @span            n= 117  silence 1.00  energy acc 0.56 MAE 0.44 ±1 1.00  valence 0.58  dark/light 0.38
+model @chunk           n= 234  silence 1.00  energy acc 0.45 MAE 0.56 ±1 0.99  valence 0.62  dark/light 0.43

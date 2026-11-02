@@ -12,3 +12,14 @@ bench/eval/snips30/
 bench/train/*.txt
 bench/eval/out_*.txt
 bench/eval/cal_*.txt
+bench/axes/models/
+bench/axes/wav/
+bench/axes/tx/
+bench/axes/data/
+bench/axes/chunks.jsonl
+bench/axes/song_feats.json
+bench/axes/*.log
+bench/axes/results/*.jsonl
+bench/axes/results/*.log
+bench/axes/results/zig_tokens.txt
+bench/axes/results/go_tokens.txt
