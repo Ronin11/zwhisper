@@ -19,6 +19,9 @@ pub const gguf = @import("gguf.zig");
 pub const bpe = @import("bpe.zig");
 pub const llm = @import("llm.zig");
 pub const bert = @import("bert.zig");
+pub const safetensors = @import("safetensors.zig");
+pub const spm = @import("spm.zig");
+pub const scene = @import("scene.zig");
 
 pub const Model = model.Model;
 pub const Engine = transcribe.Engine;
@@ -39,4 +42,7 @@ test {
     _ = bpe;
     _ = llm;
     _ = bert;
+    _ = safetensors;
+    _ = spm;
+    _ = scene;
 }

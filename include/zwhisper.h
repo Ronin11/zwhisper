@@ -49,7 +49,25 @@ int zw_set_hotwords(zw_handle *h, const uint8_t *list, size_t len);
 
 void zw_reset_voices(zw_handle *h);
 uint32_t zw_n_voices(zw_handle *h);
-int zw_version(void); /* 2 */
+/* Scene axes: a separate model (indecis directory) rating a passage of narration. */
+typedef struct zw_scene zw_scene;
+typedef struct zw_scene_axes {
+    float silence;        /* probability that no music belongs here */
+    float energy[5];      /* probabilities of levels 1..5 */
+    float energy_mean;    /* expected level, 1..5 */
+    float valence[3];     /* dark, neutral, light */
+    float valence_mean;   /* expected, -1 (dark) .. 1 (light) */
+    uint32_t n_tokens;    /* tokens read, after truncation */
+} zw_scene_axes;
+
+/* Open a scene model directory. threads <= 0 picks the CPU count minus one. NULL on failure. */
+zw_scene *zw_scene_open(const char *dir, int threads);
+void zw_scene_close(zw_scene *h);
+/* Rate one UTF-8 passage, about a minute of narration. 0 on success, 2 on failure,
+   3 if the model lacks one of the three axes. */
+int zw_scene_rate(zw_scene *h, const uint8_t *text, size_t len, zw_scene_axes *out);
+
+int zw_version(void); /* 3 */
 
 #ifdef __cplusplus
 }

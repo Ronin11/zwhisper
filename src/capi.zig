@@ -157,7 +157,98 @@ export fn zw_set_hotwords(h: *Handle, list: [*]const u8, len: usize) c_int {
     return 0;
 }
 
+// ---- scene axes -------------------------------------------------------------------------
+
+/// A scene model (indecis directory: config.json, indecis.json, model.safetensors,
+/// tokenizer.json) with its mapped files.
+pub const SceneHandle = struct {
+    files: [4][]align(std.heap.page_size_min) const u8,
+    model: *zw.scene.Model,
+    energy: ?usize,
+    valence: ?usize,
+    silence: ?usize,
+    answers: []zw.scene.Answer,
+};
+
+/// Mirrors `zw_scene_axes` in the header. Probabilities per level; the means are on the
+/// level scale (energy 1..5, valence -1..1).
+pub const SceneAxes = extern struct {
+    silence: f32,
+    energy: [5]f32,
+    energy_mean: f32,
+    valence: [3]f32,
+    valence_mean: f32,
+    n_tokens: u32,
+};
+
+const scene_files = [_][]const u8{ "config.json", "indecis.json", "model.safetensors", "tokenizer.json" };
+
+fn openScene(dir: [*:0]const u8, threads: c_int) !*SceneHandle {
+    const h = try gpa.create(SceneHandle);
+    errdefer gpa.destroy(h);
+    h.* = undefined;
+    var mapped: usize = 0;
+    errdefer for (h.files[0..mapped]) |f| {
+        _ = linux.munmap(f.ptr, f.len);
+    };
+    const d = std.mem.span(dir);
+    for (scene_files, 0..) |name, i| {
+        var buf: [4096]u8 = undefined;
+        const path = try std.fmt.bufPrint(&buf, "{s}/{s}\x00", .{ d, name });
+        h.files[i] = try mapFile(@ptrCast(path.ptr));
+        mapped += 1;
+    }
+    const n_threads: usize = if (threads > 0) @intCast(threads) else @max(1, (std.Thread.getCpuCount() catch 2) - 1);
+    h.model = try zw.scene.Model.load(gpa, .{ .config = h.files[0], .meta = h.files[1], .weights = h.files[2], .tokenizer = h.files[3] }, n_threads);
+    errdefer h.model.deinit();
+    h.answers = try gpa.alloc(zw.scene.Answer, h.model.questions.len);
+    h.energy = null;
+    h.valence = null;
+    h.silence = null;
+    for (h.model.questions, 0..) |q, i| {
+        if (std.mem.eql(u8, q.name, "energy") and q.options.len == 5) h.energy = i;
+        if (std.mem.eql(u8, q.name, "valence") and q.options.len == 3) h.valence = i;
+        if (std.mem.eql(u8, q.name, "silence") and q.kind == .noul) h.silence = i;
+    }
+    return h;
+}
+
+/// Open a scene model directory. `threads` <= 0 picks the CPU count minus one.
+export fn zw_scene_open(dir: [*:0]const u8, threads: c_int) ?*SceneHandle {
+    return openScene(dir, threads) catch null;
+}
+
+export fn zw_scene_close(h: *SceneHandle) void {
+    gpa.free(h.answers);
+    h.model.deinit();
+    for (h.files) |f| _ = linux.munmap(f.ptr, f.len);
+    gpa.destroy(h);
+}
+
+/// Rate one passage (UTF-8, about a minute of narration; longer text is truncated to the
+/// model's window). Returns 0, 2 on failure, or 3 when the model lacks one of the axes.
+export fn zw_scene_rate(h: *SceneHandle, text: [*]const u8, len: usize, out: *SceneAxes) c_int {
+    const e = h.energy orelse return 3;
+    const v = h.valence orelse return 3;
+    const s = h.silence orelse return 3;
+    const ids = h.model.tok.encode(gpa, text[0..len], h.model.max_len) catch return 2;
+    defer gpa.free(ids);
+    var pooled: [1024]f32 = undefined;
+    if (h.model.hidden > pooled.len) return 2;
+    h.model.encodeIds(ids, pooled[0..h.model.hidden]);
+    h.model.answer(pooled[0..h.model.hidden], h.answers);
+    out.* = .{
+        .silence = h.answers[s].p,
+        .energy = h.answers[e].probs[0..5].*,
+        .energy_mean = h.answers[e].expected + 1,
+        .valence = h.answers[v].probs[0..3].*,
+        .valence_mean = h.answers[v].expected - 1,
+        .n_tokens = @intCast(ids.len),
+    };
+    return 0;
+}
+
 /// Library version, for the header to check against.
 export fn zw_version() c_int {
-    return 2;
+    return 3;
 }

@@ -147,6 +147,22 @@ live in the handle so labels stay stable across calls on one book. Underscore's
 beside the Underscore repo), for the host and for Android arm64
 (`-Dtarget=aarch64-linux-android`).
 
+## Scene axes
+
+`zwhisper scene <model-dir> --text "…"` rates a passage of narration on three axes:
+whether music belongs under it at all, its energy from 1 to 5, and its colour from dark
+to light. The model is a 7.7M-parameter ModernBERT encoder fine-tuned with
+[indecis](https://github.com/Bornholm/indecis) on labels a large model wrote for
+one-minute chunks of audiobooks; `scene.zig` runs the indecis model directory as saved
+by `indecis train` or `indecis compact`, with `safetensors.zig` for the weights and
+`spm.zig` for its SentencePiece-style tokenizer. It matches `indecis predict` token for
+token, with probabilities within 0.0004, and rates a minute of text in about 60 ms on
+one desktop thread. The compact model is 42 MB. The C ABI exposes it as
+`zw_scene_open`, `zw_scene_rate` and `zw_scene_close`.
+
+The labelling and training pipeline, the comparison of context lengths, and the
+lexicon and bag-of-words baselines are in `bench/axes/`.
+
 ## Not yet
 
 - Multilingual models (token ids shift; English-only models only for now).

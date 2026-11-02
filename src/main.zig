@@ -21,6 +21,8 @@ const usage =
     \\                                      mean-pooled hidden state per transcript, one line each
     \\  scenes <model.gguf> <transcript.jsonl> [-t N] [--ctx N]
     \\                                      scenes for a transcript, template-driven
+    \\  scene <indecis-model-dir> [-t N] [--tokens] --text T | --jsonl file
+    \\                                      scene axes (silence/energy/valence) per text
     \\  transcribe <model> <wav> [-t N] [--json] [--no-context] [--no-voices]
     \\                                      [--prompt TEXT] [--hotwords a,b,c] [--no-learn] [--profile]
     \\                                      stream segments as text or JSON lines
@@ -45,6 +47,9 @@ pub fn main(init: std.process.Init) !void {
 
     if (std.mem.eql(u8, cmd, "embed")) {
         return embedMain(io, out, gpa, args);
+    }
+    if (std.mem.eql(u8, cmd, "scene")) {
+        return sceneMain(io, out, gpa, arena, args);
     }
     if (std.mem.eql(u8, cmd, "llm") or std.mem.eql(u8, cmd, "ggufinfo") or std.mem.eql(u8, cmd, "llmtokens") or std.mem.eql(u8, cmd, "scenes") or std.mem.eql(u8, cmd, "features")) {
         return llmMain(io, out, gpa, cmd, args);
@@ -465,6 +470,80 @@ fn writeFile(io: Io, path: []const u8, bytes: []const u8) !void {
     var w: Io.File.Writer = .init(file, io, &buf);
     try w.interface.writeAll(bytes);
     try w.interface.flush();
+}
+
+fn sceneMain(io: Io, out: *Io.Writer, gpa: std.mem.Allocator, arena: std.mem.Allocator, args: []const []const u8) !void {
+    const dir = args[2];
+    var threads: usize = @max(1, (std.Thread.getCpuCount() catch 4) - 1);
+    var raw_text: ?[]const u8 = null;
+    var jsonl: ?[]const u8 = null;
+    var show_tokens = false;
+    var i: usize = 3;
+    while (i < args.len) : (i += 1) {
+        if (std.mem.eql(u8, args[i], "-t") and i + 1 < args.len) {
+            i += 1;
+            threads = try std.fmt.parseInt(usize, args[i], 10);
+        } else if (std.mem.eql(u8, args[i], "--text") and i + 1 < args.len) {
+            i += 1;
+            raw_text = args[i];
+        } else if (std.mem.eql(u8, args[i], "--jsonl") and i + 1 < args.len) {
+            i += 1;
+            jsonl = args[i];
+        } else if (std.mem.eql(u8, args[i], "--tokens")) {
+            show_tokens = true;
+        }
+    }
+    const names = [_][]const u8{ "config.json", "indecis.json", "model.safetensors", "tokenizer.json" };
+    var files: [4]MappedFile = undefined;
+    for (&files, names) |*f, name| f.* = try MappedFile.open(io, try std.fs.path.join(arena, &.{ dir, name }));
+    defer for (&files) |*f| f.close();
+    var timer = clock.Timer.start();
+    const m = try zw.scene.Model.load(gpa, .{ .config = files[0].data, .meta = files[1].data, .weights = files[2].data, .tokenizer = files[3].data }, threads);
+    defer m.deinit();
+    const load_ns = timer.lap();
+    const answers = try gpa.alloc(zw.scene.Answer, m.questions.len);
+    defer gpa.free(answers);
+    const Line = struct { text: []const u8 };
+    var texts: std.ArrayList([]const u8) = .empty;
+    defer texts.deinit(gpa);
+    if (raw_text) |t| try texts.append(gpa, t);
+    if (jsonl) |path| {
+        var tf = try MappedFile.open(io, path);
+        defer tf.close();
+        var lines = std.mem.splitScalar(u8, tf.data, '\n');
+        while (lines.next()) |line| {
+            if (line.len == 0) continue;
+            const parsed = try std.json.parseFromSlice(Line, arena, line, .{ .ignore_unknown_fields = true, .allocate = .alloc_always });
+            try texts.append(gpa, parsed.value.text);
+        }
+    }
+    var total_ns: u64 = 0;
+    for (texts.items) |t| {
+        if (show_tokens) {
+            const ids = try m.tok.encode(gpa, t, m.max_len);
+            defer gpa.free(ids);
+            try out.print("tokens ({d}):", .{ids.len});
+            for (ids) |id| try out.print(" {d}", .{id});
+            try out.writeAll("\n");
+        }
+        timer = clock.Timer.start();
+        try m.rate(gpa, t, answers);
+        total_ns += timer.lap();
+        try out.writeAll("{");
+        for (m.questions, answers, 0..) |q, a, qi| {
+            if (qi > 0) try out.writeAll(", ");
+            if (q.kind == .noul) {
+                try out.print("\"{s}\": {d:.4}", .{ q.name, a.p });
+            } else {
+                try out.print("\"{s}\": [", .{q.name});
+                for (a.probs[0..a.n], 0..) |pv, k| try out.print("{s}{d:.4}", .{ if (k > 0) ", " else "", pv });
+                try out.print("], \"{s}_expected\": {d:.3}, \"{s}_choice\": \"{s}\"", .{ q.name, a.expected, q.name, q.options[a.choice] });
+            }
+        }
+        try out.writeAll("}\n");
+    }
+    if (texts.items.len > 0)
+        std.debug.print("scene: load {d:.0} ms, {d} texts, {d:.1} ms each\n", .{ ms(load_ns), texts.items.len, ms(total_ns) / @as(f64, @floatFromInt(texts.items.len)) });
 }
 
 const MappedFile = struct {
