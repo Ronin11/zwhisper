@@ -279,9 +279,14 @@ pub const Model = struct {
         m: *const Model,
         n: usize,
         global: bool,
-        fn run(j: *const AttnJob, task: usize) void {
-            // task = head * n + query row
-            j.m.attendRow(task / j.n, task % j.n, j.n, j.global, task % j.m.pool.size());
+        /// One call per scratch slot, so no two threads share a slot's scores.
+        /// Each takes every size-th task: task = head * n + query row.
+        fn run(j: *const AttnJob, slot: usize) void {
+            const size = j.m.pool.size();
+            var task = slot;
+            while (task < j.m.n_head * j.n) : (task += size) {
+                j.m.attendRow(task / j.n, task % j.n, j.n, j.global, slot);
+            }
         }
     };
 
@@ -364,7 +369,7 @@ pub const Model = struct {
             ops.linear(m.pool, inp, n, H, @as([]const f16, l.wqkv), null, 3 * H, m.qkv);
             m.rope(n, l.global);
             const job = AttnJob{ .m = m, .n = n, .global = l.global };
-            m.pool.parallelFor(m.n_head * n, &job, AttnJob.run);
+            m.pool.parallelFor(m.pool.size(), &job, AttnJob.run);
             ops.linear(m.pool, m.ctx, n, H, @as([]const f16, l.wo), null, H, m.xn);
             ops.add(m.x[0 .. n * H], m.xn[0 .. n * H]);
             ops.layerNormEps(m.pool, m.x, n, H, l.mlp_norm, m.zeros, m.eps, m.xn);
